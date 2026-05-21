@@ -1,0 +1,5 @@
+# Ignora os seguintes arquivos na hora do commit
+output/
+*.exe
+*.o
+dados.bin

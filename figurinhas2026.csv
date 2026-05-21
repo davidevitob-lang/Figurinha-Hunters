@@ -1,0 +1,981 @@
+codigo, titulo                      , secao              , grupo  , tipo
+FWC00 , Logotipo da Panini          , FIFA World Cup 2026,        , Especial
+FWC1  , Emblema Oficial (Parte 1)   , FIFA World Cup 2026,        , Especial
+FWC2  , Emblema Oficial (Parte 2)   , FIFA World Cup 2026,        , Especial
+FWC3  , Mascotes Oficiais           , FIFA World Cup 2026,        , Especial
+FWC4  , Slogan Oficial              , FIFA World Cup 2026,        , Especial
+FWC5  , Bola Oficial                , FIFA World Cup 2026,        , Especial
+FWC6  , Escudo do Canada (Pais-Sede), FIFA World Cup 2026,        , Especial
+FWC7  , Escudo do Mexico (Pais-Sede), FIFA World Cup 2026,        , Especial
+FWC8  , Escudo dos EUA (Pais-Sede)  , FIFA World Cup 2026,        , Especial
+FWC9  , Italia 1934                 , FIFA World Cup 2026,        , Especial
+FWC10 , Uruguai 1950                , FIFA World Cup 2026,        , Especial
+FWC11 , Alemanha 1954               , FIFA World Cup 2026,        , Especial
+FWC12 , Brasil 1962                 , FIFA World Cup 2026,        , Especial
+FWC13 , Alemanha 1974               , FIFA World Cup 2026,        , Especial
+FWC14 , Argentina 1986              , FIFA World Cup 2026,        , Especial
+FWC15 , Brasil 1994                 , FIFA World Cup 2026,        , Especial
+FWC16 , Brasil 2002                 , FIFA World Cup 2026,        , Especial
+FWC17 , Italia 2006                 , FIFA World Cup 2026,        , Especial
+FWC18 , Alemanha 2014               , FIFA World Cup 2026,        , Especial
+FWC19 , Argentina 2022              , FIFA World Cup 2026,        , Especial
+MEX1  , Escudo                      , Mexico             , Grupo A, Especial
+MEX2  , Luis Malagon                , Mexico             , Grupo A, Comum
+MEX3  , Johan Vasquez               , Mexico             , Grupo A, Comum
+MEX4  , Jorge Sanchez               , Mexico             , Grupo A, Comum
+MEX5  , Cesar Montes                , Mexico             , Grupo A, Comum
+MEX6  , Jesus Gallardo              , Mexico             , Grupo A, Comum
+MEX7  , Israel Reyes                , Mexico             , Grupo A, Comum
+MEX8  , Diego Lainez                , Mexico             , Grupo A, Comum
+MEX9  , Carlos Rodriguez            , Mexico             , Grupo A, Comum
+MEX10 , Edson Alvarez               , Mexico             , Grupo A, Comum
+MEX11 , Orbelin Pineda              , Mexico             , Grupo A, Comum
+MEX12 , Marcel Ruiz                 , Mexico             , Grupo A, Comum
+MEX13 , Foto da Equipe              , Mexico             , Grupo A, Comum
+MEX14 , Erick Sanchez               , Mexico             , Grupo A, Comum
+MEX15 , Hirving Lozano              , Mexico             , Grupo A, Comum
+MEX16 , Santiago Gimenez            , Mexico             , Grupo A, Comum
+MEX17 , Raul Jimenez                , Mexico             , Grupo A, Comum
+MEX18 , Alexis Vega                 , Mexico             , Grupo A, Comum
+MEX19 , Roberto Alvarado            , Mexico             , Grupo A, Comum
+MEX20 , Cesar Huerta                , Mexico             , Grupo A, Comum
+RSA1  , Escudo                      , Africa do Sul      , Grupo A, Especial
+RSA2  , Ronwen Williams             , Africa do Sul      , Grupo A, Comum
+RSA3  , Sipho Chaine                , Africa do Sul      , Grupo A, Comum
+RSA4  , Aubrey Modiba               , Africa do Sul      , Grupo A, Comum
+RSA5  , Samukele Kabini             , Africa do Sul      , Grupo A, Comum
+RSA6  , Mbekezeli Mbokazi           , Africa do Sul      , Grupo A, Comum
+RSA7  , Khulumani Ndamane           , Africa do Sul      , Grupo A, Comum
+RSA8  , Siyabonga Ngezana           , Africa do Sul      , Grupo A, Comum
+RSA9  , Khuliso Mudau               , Africa do Sul      , Grupo A, Comum
+RSA10 , Nkosinathi Sibisi           , Africa do Sul      , Grupo A, Comum
+RSA11 , Teboho Mokoena              , Africa do Sul      , Grupo A, Comum
+RSA12 , Thalente Mbatha             , Africa do Sul      , Grupo A, Comum
+RSA13 , Foto da Equipe              , Africa do Sul      , Grupo A, Comum
+RSA14 , Bathasi Aubaas              , Africa do Sul      , Grupo A, Comum
+RSA15 , Yaya Sithole                , Africa do Sul      , Grupo A, Comum
+RSA16 , Sipho Mbule                 , Africa do Sul      , Grupo A, Comum
+RSA17 , Lyle Foster                 , Africa do Sul      , Grupo A, Comum
+RSA18 , Iqraam Rayners              , Africa do Sul      , Grupo A, Comum
+RSA19 , Mohau Nkota                 , Africa do Sul      , Grupo A, Comum
+RSA20 , Oswin Appollis              , Africa do Sul      , Grupo A, Comum
+KOR1  , Escudo                      , Coreia do Sul      , Grupo A, Especial
+KOR2  , Hyeon-woo Jo                , Coreia do Sul      , Grupo A, Comum
+KOR3  , Seung-Gyu Kim               , Coreia do Sul      , Grupo A, Comum
+KOR4  , Min-jae Kim                 , Coreia do Sul      , Grupo A, Comum
+KOR5  , Yu-min Cho                  , Coreia do Sul      , Grupo A, Comum
+KOR6  , Young-woo Seol              , Coreia do Sul      , Grupo A, Comum
+KOR7  , Han-beom Lee                , Coreia do Sul      , Grupo A, Comum
+KOR8  , Tae-seok Lee                , Coreia do Sul      , Grupo A, Comum
+KOR9  , Myung-jae Lee               , Coreia do Sul      , Grupo A, Comum
+KOR10 , Jae-sung Lee                , Coreia do Sul      , Grupo A, Comum
+KOR11 , In-beom Hwang               , Coreia do Sul      , Grupo A, Comum
+KOR12 , Kang-in Lee                 , Coreia do Sul      , Grupo A, Comum
+KOR13 , Foto da Equipe              , Coreia do Sul      , Grupo A, Comum
+KOR14 , Seung-ho Paik               , Coreia do Sul      , Grupo A, Comum
+KOR15 , Jens Castrop                , Coreia do Sul      , Grupo A, Comum
+KOR16 , Dongg-yeong Lee             , Coreia do Sul      , Grupo A, Comum
+KOR17 , Gue-sung Cho                , Coreia do Sul      , Grupo A, Comum
+KOR18 , Heung-min Son               , Coreia do Sul      , Grupo A, Comum
+KOR19 , Hee-chan Hwang              , Coreia do Sul      , Grupo A, Comum
+KOR20 , Hyeon-Gyu Oh                , Coreia do Sul      , Grupo A, Comum
+CZE1  , Escudo                      , Republica Tcheca   , Grupo A, Especial
+CZE2  , Matej Kovar                 , Republica Tcheca   , Grupo A, Comum
+CZE3  , Jindrich Stanek             , Republica Tcheca   , Grupo A, Comum
+CZE4  , Ladislav Krejci             , Republica Tcheca   , Grupo A, Comum
+CZE5  , Vladimir Coufal             , Republica Tcheca   , Grupo A, Comum
+CZE6  , Jaroslav Zeleny             , Republica Tcheca   , Grupo A, Comum
+CZE7  , Tomas Holes                 , Republica Tcheca   , Grupo A, Comum
+CZE8  , David Zima                  , Republica Tcheca   , Grupo A, Comum
+CZE9  , Michal Sadilek              , Republica Tcheca   , Grupo A, Comum
+CZE10 , Lukas Provod                , Republica Tcheca   , Grupo A, Comum
+CZE11 , Lukas Cerv                  , Republica Tcheca   , Grupo A, Comum
+CZE12 , Tomas Soucek                , Republica Tcheca   , Grupo A, Comum
+CZE13 , Foto da Equipe              , Republica Tcheca   , Grupo A, Comum
+CZE14 , Pavel Sulc                  , Republica Tcheca   , Grupo A, Comum
+CZE15 , Matej Vydra                 , Republica Tcheca   , Grupo A, Comum
+CZE16 , Vasil Kusej                 , Republica Tcheca   , Grupo A, Comum
+CZE17 , Tomas Chory                 , Republica Tcheca   , Grupo A, Comum
+CZE18 , Vacilav Cerny               , Republica Tcheca   , Grupo A, Comum
+CZE19 , Adam Hlozek                 , Republica Tcheca   , Grupo A, Comum
+CZE20 , Patrik Schick               , Republica Tcheca   , Grupo A, Comum
+CAN1  , Escudo                      , Canada             , Grupo B, Especial
+CAN2  , Dayne St.Clair              , Canada             , Grupo B, Comum
+CAN3  , Alphonso Davies             , Canada             , Grupo B, Comum
+CAN4  , Alistair Johnston           , Canada             , Grupo B, Comum
+CAN5  , Samuel Adekugbe             , Canada             , Grupo B, Comum
+CAN6  , Riche Larvea                , Canada             , Grupo B, Comum
+CAN7  , Derek Cornelius             , Canada             , Grupo B, Comum
+CAN8  , Moise Bombito               , Canada             , Grupo B, Comum
+CAN9  , Kamal Miller                , Canada             , Grupo B, Comum
+CAN10 , Stephen Eustaquio           , Canada             , Grupo B, Comum
+CAN11 , Ismael Kone                 , Canada             , Grupo B, Comum
+CAN12 , Jonathan Osorio             , Canada             , Grupo B, Comum
+CAN13 , Foto da Equipe              , Canada             , Grupo B, Comum
+CAN14 , Jacob Shaffelburg           , Canada             , Grupo B, Comum
+CAN15 , Mathieu Choiniere           , Canada             , Grupo B, Comum
+CAN16 , Niko Sigur                  , Canada             , Grupo B, Comum
+CAN17 , Tajon Buchanan              , Canada             , Grupo B, Comum
+CAN18 , Liam Millar                 , Canada             , Grupo B, Comum
+CAN19 , Cyle Larin                  , Canada             , Grupo B, Comum
+CAN20 , Jonathan David              , Canada             , Grupo B, Comum
+BIH1  , Escudo                      , Bosnia             , Grupo B, Especial
+BIH2  , Nikola Vasilj               , Bosnia             , Grupo B, Comum
+BIH3  , Amer Dedic                  , Bosnia             , Grupo B, Comum
+BIH4  , Sead Kolasinac              , Bosnia             , Grupo B, Comum
+BIH5  , Tarik Muharemovic           , Bosnia             , Grupo B, Comum
+BIH6  , Nihad Mujakic               , Bosnia             , Grupo B, Comum
+BIH7  , Nikola Katic                , Bosnia             , Grupo B, Comum
+BIH8  , Amir Hadziahmetovic         , Bosnia             , Grupo B, Comum
+BIH9  , Benjamin Tahirovic          , Bosnia             , Grupo B, Comum
+BIH10 , Armin Gigovic               , Bosnia             , Grupo B, Comum
+BIH11 , Ivan Sunjic                 , Bosnia             , Grupo B, Comum
+BIH12 , Ivan Basic                  , Bosnia             , Grupo B, Comum
+BIH13 , Foto da Equipe              , Bosnia             , Grupo B, Comum
+BIH14 , Dzenis Burnic               , Bosnia             , Grupo B, Comum
+BIH15 , Esmir Bajraktarevic         , Bosnia             , Grupo B, Comum
+BIH16 , Amar Memic                  , Bosnia             , Grupo B, Comum
+BIH17 , Ermedin Demirovic           , Bosnia             , Grupo B, Comum
+BIH18 , Edin Dzeko                  , Bosnia             , Grupo B, Comum
+BIH19 , Samed Bazdar                , Bosnia             , Grupo B, Comum
+BIH20 , Haris Tabakovic             , Bosnia             , Grupo B, Comum
+QAT1  , Escudo                      , Qatar              , Grupo B, Especial
+QAT2  , Meshaal Barsham             , Qatar              , Grupo B, Comum
+QAT3  , Sultan Albrake              , Qatar              , Grupo B, Comum
+QAT4  , Lucas Mendes                , Qatar              , Grupo B, Comum
+QAT5  , Homam Ahmed                 , Qatar              , Grupo B, Comum
+QAT6  , Boualem Khoukhi             , Qatar              , Grupo B, Comum
+QAT7  , Pedro Miguel                , Qatar              , Grupo B, Comum
+QAT8  , Tarek Salman                , Qatar              , Grupo B, Comum
+QAT9  , Mohamed Al-Mannai           , Qatar              , Grupo B, Comum
+QAT10 , Karim Boudiaf               , Qatar              , Grupo B, Comum
+QAT11 , Assim Madibo                , Qatar              , Grupo B, Comum
+QAT12 , Ahmed Fatehi                , Qatar              , Grupo B, Comum
+QAT13 , Foto da Equipe              , Qatar              , Grupo B, Comum
+QAT14 , Mohammed Waad               , Qatar              , Grupo B, Comum
+QAT15 , Abdulaziz Hatem             , Qatar              , Grupo B, Comum
+QAT16 , Hassan Al-Haydos            , Qatar              , Grupo B, Comum
+QAT17 , Edmilson Junior             , Qatar              , Grupo B, Comum
+QAT18 , Akram Hassan Afif           , Qatar              , Grupo B, Comum
+QAT19 , Ahmed Al Ganehi             , Qatar              , Grupo B, Comum
+QAT20 , Almoez Ali                  , Qatar              , Grupo B, Comum
+SUI1  , Escudo                      , Suica              , Grupo B, Especial
+SUI2  , Gregor Kobel                , Suica              , Grupo B, Comum
+SUI3  , Yvon Mvogo                  , Suica              , Grupo B, Comum
+SUI4  , Manuel Akanji               , Suica              , Grupo B, Comum
+SUI5  , Ricardo Rodriguez           , Suica              , Grupo B, Comum
+SUI6  , Nico Elvedi                 , Suica              , Grupo B, Comum
+SUI7  , Aurele Amenda               , Suica              , Grupo B, Comum
+SUI8  , Silvan Widmer               , Suica              , Grupo B, Comum
+SUI9  , Granit Xhaka                , Suica              , Grupo B, Comum
+SUI10 , Denis Zakaria               , Suica              , Grupo B, Comum
+SUI11 , Remo Freuler                , Suica              , Grupo B, Comum
+SUI12 , Fabian Rieder               , Suica              , Grupo B, Comum
+SUI13 , Foto da Equipe              , Suica              , Grupo B, Comum
+SUI14 , Ardon Jashari               , Suica              , Grupo B, Comum
+SUI15 , Johan Manzambi              , Suica              , Grupo B, Comum
+SUI16 , Michel Aebischer            , Suica              , Grupo B, Comum
+SUI17 , Breel Embolo                , Suica              , Grupo B, Comum
+SUI18 , Ruben Vargas                , Suica              , Grupo B, Comum
+SUI19 , Dan Ndoye                   , Suica              , Grupo B, Comum
+SUI20 , Zeki Amdouni                , Suica              , Grupo B, Comum
+BRA1  , Escudo                      , Brasil             , Grupo C, Especial
+BRA2  , Alisson                     , Brasil             , Grupo C, Comum
+BRA3  , Bento                       , Brasil             , Grupo C, Comum
+BRA4  , Marquinhos                  , Brasil             , Grupo C, Comum
+BRA5  , Eder Militao                , Brasil             , Grupo C, Comum
+BRA6  , Gabriel Magalhaes           , Brasil             , Grupo C, Comum
+BRA7  , Danilo                      , Brasil             , Grupo C, Comum
+BRA8  , Wesley                      , Brasil             , Grupo C, Comum
+BRA9  , Lucas Paqueta               , Brasil             , Grupo C, Comum
+BRA10 , Casemiro                    , Brasil             , Grupo C, Comum
+BRA11 , Bruno Guimaraes             , Brasil             , Grupo C, Comum
+BRA12 , Luiz Henrique               , Brasil             , Grupo C, Comum
+BRA13 , Foto da Equipe              , Brasil             , Grupo C, Comum
+BRA14 , Vinicius Junior             , Brasil             , Grupo C, Comum
+BRA15 , Rodrygo                     , Brasil             , Grupo C, Comum
+BRA16 , Joao Pedro                  , Brasil             , Grupo C, Comum
+BRA17 , Matheus Cunha               , Brasil             , Grupo C, Comum
+BRA18 , Gabriel Martinelli          , Brasil             , Grupo C, Comum
+BRA19 , Raphinha                    , Brasil             , Grupo C, Comum
+BRA20 , Estevao                     , Brasil             , Grupo C, Comum
+MAR1  , Escudo                      , Marrocos           , Grupo C, Especial
+MAR2  , Yassine Bounou              , Marrocos           , Grupo C, Comum
+MAR3  , Munir El Kajoui             , Marrocos           , Grupo C, Comum
+MAR4  , Achraf Hakimi               , Marrocos           , Grupo C, Comum
+MAR5  , Noussair Mazraoui           , Marrocos           , Grupo C, Comum
+MAR6  , Nayef Aguerd                , Marrocos           , Grupo C, Comum
+MAR7  , Roman Saiss                 , Marrocos           , Grupo C, Comum
+MAR8  , Jawad El Yamio              , Marrocos           , Grupo C, Comum
+MAR9  , Adam Masina                 , Marrocos           , Grupo C, Comum
+MAR10 , Sofyan Amrabat              , Marrocos           , Grupo C, Comum
+MAR11 , Azzedine Ounahi             , Marrocos           , Grupo C, Comum
+MAR12 , Eliesse Ben Seghir          , Marrocos           , Grupo C, Comum
+MAR13 , Foto da Equipe              , Marrocos           , Grupo C, Comum
+MAR14 , Bilal El Khannouss          , Marrocos           , Grupo C, Comum
+MAR15 , Ismael Saibari              , Marrocos           , Grupo C, Comum
+MAR16 , Youssef En-Nesyri           , Marrocos           , Grupo C, Comum
+MAR17 , Abde Ezzalzouli             , Marrocos           , Grupo C, Comum
+MAR18 , Soufiane Rahimi             , Marrocos           , Grupo C, Comum
+MAR19 , Brahim Diaz                 , Marrocos           , Grupo C, Comum
+MAR20 , Ayoub El Kaabi              , Marrocos           , Grupo C, Comum
+HAI1  , Escudo                      , Haiti              , Grupo C, Especial
+HAI2  , Johny Placide               , Haiti              , Grupo C, Comum
+HAI3  , Carlens Arcus               , Haiti              , Grupo C, Comum
+HAI4  , Martin Experience           , Haiti              , Grupo C, Comum
+HAI5  , Jean-Kevin Duverne          , Haiti              , Grupo C, Comum
+HAI6  , Ricardo Ade                 , Haiti              , Grupo C, Comum
+HAI7  , Duke Lacroix                , Haiti              , Grupo C, Comum
+HAI8  , Garven Metusala             , Haiti              , Grupo C, Comum
+HAI9  , Hannes Delcroix             , Haiti              , Grupo C, Comum
+HAI10 , Leverton Pierre             , Haiti              , Grupo C, Comum
+HAI11 , Danley Jean Jacques         , Haiti              , Grupo C, Comum
+HAI12 , Jean-Ricner Bellegarde      , Haiti              , Grupo C, Comum
+HAI13 , Foto da Equipe              , Haiti              , Grupo C, Comum
+HAI14 , Christopher Attys           , Haiti              , Grupo C, Comum
+HAI15 , Derrick Etienne Jr.         , Haiti              , Grupo C, Comum
+HAI16 , Josue Casimir               , Haiti              , Grupo C, Comum
+HAI17 , Ruben Providence            , Haiti              , Grupo C, Comum
+HAI18 , Duckens Nazon               , Haiti              , Grupo C, Comum
+HAI19 , Louicius Deedson            , Haiti              , Grupo C, Comum
+HAI20 , Frantzdy Pierrot            , Haiti              , Grupo C, Comum
+SCO1  , Escudo                      , Escocia            , Grupo C, Especial
+SCO2  , Angus Gunn                  , Escocia            , Grupo C, Comum
+SCO3  , Jack Hendry                 , Escocia            , Grupo C, Comum
+SCO4  , Kieran Tierney              , Escocia            , Grupo C, Comum
+SCO5  , Aaron Hickey                , Escocia            , Grupo C, Comum
+SCO6  , Andrew Robertson            , Escocia            , Grupo C, Comum
+SCO7  , Scott McKenna               , Escocia            , Grupo C, Comum
+SCO8  , John Souttar                , Escocia            , Grupo C, Comum
+SCO9  , Anthony Ralston             , Escocia            , Grupo C, Comum
+SCO10 , Grant Hanley                , Escocia            , Grupo C, Comum
+SCO11 , Scott McTominay             , Escocia            , Grupo C, Comum
+SCO12 , Billy Gilmour               , Escocia            , Grupo C, Comum
+SCO13 , Foto da Equipe              , Escocia            , Grupo C, Comum
+SCO14 , Lewis Ferguson              , Escocia            , Grupo C, Comum
+SCO15 , Ryan Christie               , Escocia            , Grupo C, Comum
+SCO16 , Kenny McLean                , Escocia            , Grupo C, Comum
+SCO17 , John McGinn                 , Escocia            , Grupo C, Comum
+SCO18 , Lyndon Dykes                , Escocia            , Grupo C, Comum
+SCO19 , Che Adams                   , Escocia            , Grupo C, Comum
+SCO20 , Ben Gannon-Doak             , Escocia            , Grupo C, Comum
+USA1  , Escudo                      , Estados Unidos     , Grupo D, Especial
+USA2  , Math Freese                 , Estados Unidos     , Grupo D, Comum
+USA3  , Chris Richards              , Estados Unidos     , Grupo D, Comum
+USA4  , Tim Ream                    , Estados Unidos     , Grupo D, Comum
+USA5  , Mark McKenzie               , Estados Unidos     , Grupo D, Comum
+USA6  , Alex Freeman                , Estados Unidos     , Grupo D, Comum
+USA7  , Antonee Robinson            , Estados Unidos     , Grupo D, Comum
+USA8  , Tyler Adams                 , Estados Unidos     , Grupo D, Comum
+USA9  , Tanner Tessmann             , Estados Unidos     , Grupo D, Comum
+USA10 , Weston McKenny              , Estados Unidos     , Grupo D, Comum
+USA11 , Christian Roldan            , Estados Unidos     , Grupo D, Comum
+USA12 , Timothy Weah                , Estados Unidos     , Grupo D, Comum
+USA13 , Foto da Equipe              , Estados Unidos     , Grupo D, Comum
+USA14 , Diego Luna                  , Estados Unidos     , Grupo D, Comum
+USA15 , Malim Tillman               , Estados Unidos     , Grupo D, Comum
+USA16 , Christian Pulisic           , Estados Unidos     , Grupo D, Comum
+USA17 , Brenden Aaronson            , Estados Unidos     , Grupo D, Comum
+USA18 , Ricardo Pepi                , Estados Unidos     , Grupo D, Comum
+USA19 , Haji Wright                 , Estados Unidos     , Grupo D, Comum
+USA20 , Folarin Balogun             , Estados Unidos     , Grupo D, Comum
+PAR1  , Escudo                      , Paraguai           , Grupo D, Especial
+PAR2  , Roberto Fernandez           , Paraguai           , Grupo D, Comum
+PAR3  , Orlando Gill                , Paraguai           , Grupo D, Comum
+PAR4  , Gustavo Gomez               , Paraguai           , Grupo D, Comum
+PAR5  , Fabian Balbuena             , Paraguai           , Grupo D, Comum
+PAR6  , Juan Jose Caceres           , Paraguai           , Grupo D, Comum
+PAR7  , Omar Alderete               , Paraguai           , Grupo D, Comum
+PAR8  , Junior Alonso               , Paraguai           , Grupo D, Comum
+PAR9  , Mathias Villasanti          , Paraguai           , Grupo D, Comum
+PAR10 , Diego Gomez                 , Paraguai           , Grupo D, Comum
+PAR11 , Damian Bobadilla            , Paraguai           , Grupo D, Comum
+PAR12 , Andres Cubas                , Paraguai           , Grupo D, Comum
+PAR13 , Foto da Equipe              , Paraguai           , Grupo D, Comum
+PAR14 , Matias Galarza Fonda        , Paraguai           , Grupo D, Comum
+PAR15 , Julio Enciso                , Paraguai           , Grupo D, Comum
+PAR16 , Alejandro Romero Gamarra    , Paraguai           , Grupo D, Comum
+PAR17 , Miguel Almiron              , Paraguai           , Grupo D, Comum
+PAR18 , Ramon Sosa                  , Paraguai           , Grupo D, Comum
+PAR19 , Angel Romero                , Paraguai           , Grupo D, Comum
+PAR20 , Antonio Sanabria            , Paraguai           , Grupo D, Comum
+AUS1  , Escudo                      , Australia          , Grupo D, Especial
+AUS2  , Mathew Ryan                 , Australia          , Grupo D, Comum
+AUS3  , Joe Gauci                   , Australia          , Grupo D, Comum
+AUS4  , Harry Souttar               , Australia          , Grupo D, Comum
+AUS5  , Alessandro Circati          , Australia          , Grupo D, Comum
+AUS6  , Jordan Bos                  , Australia          , Grupo D, Comum
+AUS7  , Aziz Behich                 , Australia          , Grupo D, Comum
+AUS8  , Cameron Burgess             , Australia          , Grupo D, Comum
+AUS9  , Lewis Miller                , Australia          , Grupo D, Comum
+AUS10 , Milos Degenek               , Australia          , Grupo D, Comum
+AUS11 , Jackson Irvine              , Australia          , Grupo D, Comum
+AUS12 , Riley McGree                , Australia          , Grupo D, Comum
+AUS13 , Foto da Equipe              , Australia          , Grupo D, Comum
+AUS14 , Aiden O'Neill               , Australia          , Grupo D, Comum
+AUS15 , Connor Metcalfe             , Australia          , Grupo D, Comum
+AUS16 , Patrick Yazbek              , Australia          , Grupo D, Comum
+AUS17 , Craig Goodwin               , Australia          , Grupo D, Comum
+AUS18 , Kusini Vengi                , Australia          , Grupo D, Comum
+AUS19 , Nestory Irankunda           , Australia          , Grupo D, Comum
+AUS20 , Mohamed Toure               , Australia          , Grupo D, Comum
+TUR1  , Escudo                      , Turquia            , Grupo D, Especial
+TUR2  , Ugurcan Cakir               , Turquia            , Grupo D, Comum
+TUR3  , Mert Muldur                 , Turquia            , Grupo D, Comum
+TUR4  , Zeki Celik                  , Turquia            , Grupo D, Comum
+TUR5  , Abdulkerim Bardakci         , Turquia            , Grupo D, Comum
+TUR6  , Caglar Soyunku              , Turquia            , Grupo D, Comum
+TUR7  , Merih Demiral               , Turquia            , Grupo D, Comum
+TUR8  , Ferdi Kadioglu              , Turquia            , Grupo D, Comum
+TUR9  , Kaan Ayhan                  , Turquia            , Grupo D, Comum
+TUR10 , Ismail Yuksek               , Turquia            , Grupo D, Comum
+TUR11 , Hakan Calhanoglu            , Turquia            , Grupo D, Comum
+TUR12 , Orkun Kokcu                 , Turquia            , Grupo D, Comum
+TUR13 , Foto da Equipe              , Turquia            , Grupo D, Comum
+TUR14 , Arda Guler                  , Turquia            , Grupo D, Comum
+TUR15 , Irfan Can Kahvecu           , Turquia            , Grupo D, Comum
+TUR16 , Yunus Akgun                 , Turquia            , Grupo D, Comum
+TUR17 , Can Uzun                    , Turquia            , Grupo D, Comum
+TUR18 , Baris Alper Yilmaz          , Turquia            , Grupo D, Comum
+TUR19 , Kerem Akturkoglu            , Turquia            , Grupo D, Comum
+TUR20 , Kenan Yildiz                , Turquia            , Grupo D, Comum
+GER1  , Escudo                      , Alemanha           , Grupo E, Especial
+GER2  , Marc-Andre ter Stegen       , Alemanha           , Grupo E, Comum
+GER3  , Jonathan Tah                , Alemanha           , Grupo E, Comum
+GER4  , David Raum                  , Alemanha           , Grupo E, Comum
+GER5  , Nico Schlotterbeck          , Alemanha           , Grupo E, Comum
+GER6  , Antonio Rudiger             , Alemanha           , Grupo E, Comum
+GER7  , Waldemar Anton              , Alemanha           , Grupo E, Comum
+GER8  , Ridle Baku                  , Alemanha           , Grupo E, Comum
+GER9  , Maximilian Mittelstadt      , Alemanha           , Grupo E, Comum
+GER10 , Joshua Kimmich              , Alemanha           , Grupo E, Comum
+GER11 , Florian Wirtz               , Alemanha           , Grupo E, Comum
+GER12 , Felix Nmecha                , Alemanha           , Grupo E, Comum
+GER13 , Foto da Equipe              , Alemanha           , Grupo E, Comum
+GER14 , Leon Goretzka               , Alemanha           , Grupo E, Comum
+GER15 , Jamal Musiala               , Alemanha           , Grupo E, Comum
+GER16 , Serge Gnabry                , Alemanha           , Grupo E, Comum
+GER17 , Kai Havertz                 , Alemanha           , Grupo E, Comum
+GER18 , Leroy Sane                  , Alemanha           , Grupo E, Comum
+GER19 , Karim Adeyemi               , Alemanha           , Grupo E, Comum
+GER20 , Nick Woltemade              , Alemanha           , Grupo E, Comum
+CUW1  , Escudo                      , Curacao            , Grupo E, Especial
+CUW2  , Eloy Room                   , Curacao            , Grupo E, Comum
+CUW3  , Armando Obispo              , Curacao            , Grupo E, Comum
+CUW4  , Sherel Floranus             , Curacao            , Grupo E, Comum
+CUW5  , Jurien Gaari                , Curacao            , Grupo E, Comum
+CUW6  , Joshua Brenet               , Curacao            , Grupo E, Comum
+CUW7  , Roshon Van Eijma            , Curacao            , Grupo E, Comum
+CUW8  , Shurandy Sambo              , Curacao            , Grupo E, Comum
+CUW9  , Livano Comenencia           , Curacao            , Grupo E, Comum
+CUW10 , Godfried Roemeratoe         , Curacao            , Grupo E, Comum
+CUW11 , Juninho Bacuna              , Curacao            , Grupo E, Comum
+CUW12 , Leandro Bacuna              , Curacao            , Grupo E, Comum
+CUW13 , Foto da Equipe              , Curacao            , Grupo E, Comum
+CUW14 , Tahith Chong                , Curacao            , Grupo E, Comum
+CUW15 , Kenji Gorre                 , Curacao            , Grupo E, Comum
+CUW16 , Jearl Margaritha            , Curacao            , Grupo E, Comum
+CUW17 , Jurgen Locadia              , Curacao            , Grupo E, Comum
+CUW18 , Jeremy Antonisse            , Curacao            , Grupo E, Comum
+CUW19 , Gervane Kastaneer           , Curacao            , Grupo E, Comum
+CUW20 , Sontje Hansen               , Curacao            , Grupo E, Comum
+CIV1  , Escudo                      , Costa do Marfim    , Grupo E, Especial
+CIV2  , Yahia Fofana                , Costa do Marfim    , Grupo E, Comum
+CIV3  , Ghislain Konan              , Costa do Marfim    , Grupo E, Comum
+CIV4  , Wilfried Singo              , Costa do Marfim    , Grupo E, Comum
+CIV5  , Odilon Kossounou            , Costa do Marfim    , Grupo E, Comum
+CIV6  , Evan Ndicka                 , Costa do Marfim    , Grupo E, Comum
+CIV7  , Willy Boly                  , Costa do Marfim    , Grupo E, Comum
+CIV8  , Emmanuel Agbadou            , Costa do Marfim    , Grupo E, Comum
+CIV9  , Ousmane Diomande            , Costa do Marfim    , Grupo E, Comum
+CIV10 , Franck Kessie               , Costa do Marfim    , Grupo E, Comum
+CIV11 , Seko Fofana                 , Costa do Marfim    , Grupo E, Comum
+CIV12 , Ibrahim Sangare             , Costa do Marfim    , Grupo E, Comum
+CIV13 , Foto da Equipe              , Costa do Marfim    , Grupo E, Comum
+CIV14 , Jean-Philippe Gbamin        , Costa do Marfim    , Grupo E, Comum
+CIV15 , Amad Diallo                 , Costa do Marfim    , Grupo E, Comum
+CIV16 , Sebastien Haller            , Costa do Marfim    , Grupo E, Comum
+CIV17 , Simon Adringa               , Costa do Marfim    , Grupo E, Comum
+CIV18 , Yan Diomande                , Costa do Marfim    , Grupo E, Comum
+CIV19 , Evann Guessand              , Costa do Marfim    , Grupo E, Comum
+CIV20 , Oumar Diakite               , Costa do Marfim    , Grupo E, Comum
+ECU1  , Escudo                      , Equador            , Grupo E, Especial
+ECU2  , Hernan Galindez             , Equador            , Grupo E, Comum
+ECU3  , Gonzalo Valle               , Equador            , Grupo E, Comum
+ECU4  , Piero Hincapie              , Equador            , Grupo E, Comum
+ECU5  , Pervis Estupinan            , Equador            , Grupo E, Comum
+ECU6  , Willian Pacho               , Equador            , Grupo E, Comum
+ECU7  , Angelo Preciado             , Equador            , Grupo E, Comum
+ECU8  , Joel Ordonez                , Equador            , Grupo E, Comum
+ECU9  , Moises Caicedo              , Equador            , Grupo E, Comum
+ECU10 , Alan Franco                 , Equador            , Grupo E, Comum
+ECU11 , Kendry Paez                 , Equador            , Grupo E, Comum
+ECU12 , Pedro Vite                  , Equador            , Grupo E, Comum
+ECU13 , Foto da Equipe              , Equador            , Grupo E, Comum
+ECU14 , John Veboah                 , Equador            , Grupo E, Comum
+ECU15 , Leonardo Campana            , Equador            , Grupo E, Comum
+ECU16 , Gonzalo Plata               , Equador            , Grupo E, Comum
+ECU17 , Nilson Angulo               , Equador            , Grupo E, Comum
+ECU18 , Alan Minda                  , Equador            , Grupo E, Comum
+ECU19 , Kevin Rodriguez             , Equador            , Grupo E, Comum
+ECU20 , Enner Valencia              , Equador            , Grupo E, Comum
+NED1  , Escudo                      , Holanda            , Grupo F, Especial
+NED2  , Bart Verbruggen             , Holanda            , Grupo F, Comum
+NED3  , Virgil Van Dijk             , Holanda            , Grupo F, Comum
+NED4  , Micky van de Ven            , Holanda            , Grupo F, Comum
+NED5  , Jurien Timber               , Holanda            , Grupo F, Comum
+NED6  , Denzel Dumfries             , Holanda            , Grupo F, Comum
+NED7  , Nathan Ake                  , Holanda            , Grupo F, Comum
+NED8  , Jereme Frimpong             , Holanda            , Grupo F, Comum
+NED9  , Jan Paul van Hecke          , Holanda            , Grupo F, Comum
+NED10 , Tijjani Reijnders           , Holanda            , Grupo F, Comum
+NED11 , Ryan Gravenberch            , Holanda            , Grupo F, Comum
+NED12 , Teun Koopmeiners            , Holanda            , Grupo F, Comum
+NED13 , Foto da Equipe              , Holanda            , Grupo F, Comum
+NED14 , Frenkie de Jong             , Holanda            , Grupo F, Comum
+NED15 , Xavi Simons                 , Holanda            , Grupo F, Comum
+NED16 , Justin Kluivert             , Holanda            , Grupo F, Comum
+NED17 , Memphis Depay               , Holanda            , Grupo F, Comum
+NED18 , Donyell Malen               , Holanda            , Grupo F, Comum
+NED19 , Wout Weghorst               , Holanda            , Grupo F, Comum
+NED20 , Cody Gakpo                  , Holanda            , Grupo F, Comum
+JPN1  , Escudo                      , Japao              , Grupo F, Especial
+JPN2  , Zion Suzuki                 , Japao              , Grupo F, Comum
+JPN3  , Henry Heroki Mochizuki      , Japao              , Grupo F, Comum
+JPN4  , Ayumu Seko                  , Japao              , Grupo F, Comum
+JPN5  , Junnosuke Suzuki            , Japao              , Grupo F, Comum
+JPN6  , Shogo Taniguchi             , Japao              , Grupo F, Comum
+JPN7  , Tsuyoshi Watanabe           , Japao              , Grupo F, Comum
+JPN8  , Kaishu Sano                 , Japao              , Grupo F, Comum
+JPN9  , Yuki Soma                   , Japao              , Grupo F, Comum
+JPN10 , Ao Tanaka                   , Japao              , Grupo F, Comum
+JPN11 , Daichi Kamada               , Japao              , Grupo F, Comum
+JPN12 , Takefusa Kubo               , Japao              , Grupo F, Comum
+JPN13 , Foto da Equipe              , Japao              , Grupo F, Comum
+JPN14 , Ritsu Doan                  , Japao              , Grupo F, Comum
+JPN15 , Keito Nakamura              , Japao              , Grupo F, Comum
+JPN16 , Takumi Minamino             , Japao              , Grupo F, Comum
+JPN17 , Shuto Machino               , Japao              , Grupo F, Comum
+JPN18 , Junya Ito                   , Japao              , Grupo F, Comum
+JPN19 , Koki Ogawa                  , Japao              , Grupo F, Comum
+JPN20 , Ayase Ueda                  , Japao              , Grupo F, Comum
+SWE1  , Escudo                      , Suecia             , Grupo F, Especial
+SWE2  , Victor Johansson            , Suecia             , Grupo F, Comum
+SWE3  , Isak Hien                   , Suecia             , Grupo F, Comum
+SWE4  , Gabriel Gudmundsson         , Suecia             , Grupo F, Comum
+SWE5  , Emil Holm                   , Suecia             , Grupo F, Comum
+SWE6  , Victor Nilsson Lindelof     , Suecia             , Grupo F, Comum
+SWE7  , Gustaf Lagerbielke          , Suecia             , Grupo F, Comum
+SWE8  , Lucas Bergvall              , Suecia             , Grupo F, Comum
+SWE9  , Hugo Larsson                , Suecia             , Grupo F, Comum
+SWE10 , Jesper Karlstrom            , Suecia             , Grupo F, Comum
+SWE11 , Yasin Ayari                 , Suecia             , Grupo F, Comum
+SWE12 , Mattias Svanberg            , Suecia             , Grupo F, Comum
+SWE13 , Foto da Equipe              , Suecia             , Grupo F, Comum
+SWE14 , Daniel Svensson             , Suecia             , Grupo F, Comum
+SWE15 , Ken Sema                    , Suecia             , Grupo F, Comum
+SWE16 , Roony Bardghji              , Suecia             , Grupo F, Comum
+SWE17 , Dejan Kulusevski            , Suecia             , Grupo F, Comum
+SWE18 , Anthony Elanga              , Suecia             , Grupo F, Comum
+SWE19 , Alexander Isak              , Suecia             , Grupo F, Comum
+SWE20 , Viktor Gyokeres             , Suecia             , Grupo F, Comum
+TUN1  , Escudo                      , Tunisia            , Grupo F, Especial
+TUN2  , Bechir Ben Said             , Tunisia            , Grupo F, Comum
+TUN3  , Aymen Dahmen                , Tunisia            , Grupo F, Comum
+TUN4  , Van Valery                  , Tunisia            , Grupo F, Comum
+TUN5  , Montassar Talbi             , Tunisia            , Grupo F, Comum
+TUN6  , Yassine Meriah              , Tunisia            , Grupo F, Comum
+TUN7  , Ali Abdi                    , Tunisia            , Grupo F, Comum
+TUN8  , Dylan Bronn                 , Tunisia            , Grupo F, Comum
+TUN9  , Ellyes Skhiri               , Tunisia            , Grupo F, Comum
+TUN10 , Aissa Laidouni              , Tunisia            , Grupo F, Comum
+TUN11 , Ferjani Sassi               , Tunisia            , Grupo F, Comum
+TUN12 , Mohamed Ali Ben Romdhane    , Tunisia            , Grupo F, Comum
+TUN13 , Foto da Equipe              , Tunisia            , Grupo F, Comum
+TUN14 , Hannibal Mejbri             , Tunisia            , Grupo F, Comum
+TUN15 , Elias Achouri               , Tunisia            , Grupo F, Comum
+TUN16 , Elias Saad                  , Tunisia            , Grupo F, Comum
+TUN17 , Hazem Mastouri              , Tunisia            , Grupo F, Comum
+TUN18 , Ismael Gharbi               , Tunisia            , Grupo F, Comum
+TUN19 , Sayfallah Ltaief            , Tunisia            , Grupo F, Comum
+TUN20 , Naim Sliti                  , Tunisia            , Grupo F, Comum
+BEL1  , Escudo                      , Belgica            , Grupo G, Especial
+BEL2  , Thibaut Courtois            , Belgica            , Grupo G, Comum
+BEL3  , Arthur Theate               , Belgica            , Grupo G, Comum
+BEL4  , Timothy Castagne            , Belgica            , Grupo G, Comum
+BEL5  , Zeno Debast                 , Belgica            , Grupo G, Comum
+BEL6  , Brandon Mechele             , Belgica            , Grupo G, Comum
+BEL7  , Maxim De Cuyper             , Belgica            , Grupo G, Comum
+BEL8  , Thomas Meunier              , Belgica            , Grupo G, Comum
+BEL9  , Youri Tieleman              , Belgica            , Grupo G, Comum
+BEL10 , Amadou Onana                , Belgica            , Grupo G, Comum
+BEL11 , Nicolas Raskin              , Belgica            , Grupo G, Comum
+BEL12 , Alexis Saelemaekers         , Belgica            , Grupo G, Comum
+BEL13 , Foto da Equipe              , Belgica            , Grupo G, Comum
+BEL14 , Hans Vanaken                , Belgica            , Grupo G, Comum
+BEL15 , Kevin De Bruyne             , Belgica            , Grupo G, Comum
+BEL16 , Jeremy Doku                 , Belgica            , Grupo G, Comum
+BEL17 , Charles De Ketelaere        , Belgica            , Grupo G, Comum
+BEL18 , Leandro Trossard            , Belgica            , Grupo G, Comum
+BEL19 , Lois Openda                 , Belgica            , Grupo G, Comum
+BEL20 , Romelu Lukaku               , Belgica            , Grupo G, Comum
+EGY1  , Escudo                      , Egito              , Grupo G, Especial
+EGY2  , Mohamed El Shenawy          , Egito              , Grupo G, Comum
+EGY3  , Mohamed Hany                , Egito              , Grupo G, Comum
+EGY4  , Mohamed Hamdy               , Egito              , Grupo G, Comum
+EGY5  , Yasser Ibrahim              , Egito              , Grupo G, Comum
+EGY6  , Khaled Sobhi                , Egito              , Grupo G, Comum
+EGY7  , Ramy Rabia                  , Egito              , Grupo G, Comum
+EGY8  , Hossam Abdelmaguid          , Egito              , Grupo G, Comum
+EGY9  , Ahmed Fatouh                , Egito              , Grupo G, Comum
+EGY10 , Marwan Attia                , Egito              , Grupo G, Comum
+EGY11 , Zizo                        , Egito              , Grupo G, Comum
+EGY12 , Hamdy Fathy                 , Egito              , Grupo G, Comum
+EGY13 , Foto da Equipe              , Egito              , Grupo G, Comum
+EGY14 , Mohamed Lasheen             , Egito              , Grupo G, Comum
+EGY15 , Emam Ashour                 , Egito              , Grupo G, Comum
+EGY16 , Osama Faisal                , Egito              , Grupo G, Comum
+EGY17 , Mohamed Salah               , Egito              , Grupo G, Comum
+EGY18 , Mostafa Mohamed             , Egito              , Grupo G, Comum
+EGY19 , Trezeguet                   , Egito              , Grupo G, Comum
+EGY20 , Omar Marsmoush              , Egito              , Grupo G, Comum
+IRN1  , Escudo                      , Ira                , Grupo G, Especial
+IRN2  , Alirez Beiranvand           , Ira                , Grupo G, Comum
+IRN3  , Morteza Pouraliganji        , Ira                , Grupo G, Comum
+IRN4  , Ehsan Hajsafi               , Ira                , Grupo G, Comum
+IRN5  , Milad Mohammadi             , Ira                , Grupo G, Comum
+IRN6  , Shojae Khalilzadeh          , Ira                , Grupo G, Comum
+IRN7  , Ramin Rezaeian              , Ira                , Grupo G, Comum
+IRN8  , Hossein Kanaani             , Ira                , Grupo G, Comum
+IRN9  , Sadegh Moharrami            , Ira                , Grupo G, Comum
+IRN10 , Saleh Hardani               , Ira                , Grupo G, Comum
+IRN11 , Saeed Ezatolahi             , Ira                , Grupo G, Comum
+IRN12 , Saman Ghoddos               , Ira                , Grupo G, Comum
+IRN13 , Foto da Equipe              , Ira                , Grupo G, Comum
+IRN14 , Omid Noorafkan              , Ira                , Grupo G, Comum
+IRN15 , Roozbeh Cheshmi             , Ira                , Grupo G, Comum
+IRN16 , Mohammad Mohebi             , Ira                , Grupo G, Comum
+IRN17 , Sardar Azmoun               , Ira                , Grupo G, Comum
+IRN18 , Mehdi Taremi                , Ira                , Grupo G, Comum
+IRN19 , Alireza Jahanbakhsh         , Ira                , Grupo G, Comum
+IRN20 , Ali Gholizadeh              , Ira                , Grupo G, Comum
+NZL1  , Escudo                      , Nova Zelandia      , Grupo G, Especial
+NZL2  , Max Crocombe Payne          , Nova Zelandia      , Grupo G, Comum
+NZL3  , Alex Paulsen                , Nova Zelandia      , Grupo G, Comum
+NZL4  , Michael Boxall              , Nova Zelandia      , Grupo G, Comum
+NZL5  , Liberato Cacace             , Nova Zelandia      , Grupo G, Comum
+NZL6  , Tim Payne                   , Nova Zelandia      , Grupo G, Comum
+NZL7  , Tyler Bindon                , Nova Zelandia      , Grupo G, Comum
+NZL8  , Francis de Vries            , Nova Zelandia      , Grupo G, Comum
+NZL9  , Finn Surman                 , Nova Zelandia      , Grupo G, Comum
+NZL10 , Joe Bell                    , Nova Zelandia      , Grupo G, Comum
+NZL11 , Sarpreet Singh              , Nova Zelandia      , Grupo G, Comum
+NZL12 , Ryan Thomas                 , Nova Zelandia      , Grupo G, Comum
+NZL13 , Foto da Equipe              , Nova Zelandia      , Grupo G, Comum
+NZL14 , Matthew Garbett             , Nova Zelandia      , Grupo G, Comum
+NZL15 , Marko Stamenic              , Nova Zelandia      , Grupo G, Comum
+NZL16 , Ben Old                     , Nova Zelandia      , Grupo G, Comum
+NZL17 , Chris Wood                  , Nova Zelandia      , Grupo G, Comum
+NZL18 , Elijah Just                 , Nova Zelandia      , Grupo G, Comum
+NZL19 , Callum McCowatt             , Nova Zelandia      , Grupo G, Comum
+NZL20 , Kosta Barbarouses           , Nova Zelandia      , Grupo G, Comum
+ESP1  , Escudo                      , Espanha            , Grupo H, Especial
+ESP2  , Unai Simon                  , Espanha            , Grupo H, Comum
+ESP3  , Robin Le Normand            , Espanha            , Grupo H, Comum
+ESP4  , Aymeric Laporte             , Espanha            , Grupo H, Comum
+ESP5  , Dean Huijsen                , Espanha            , Grupo H, Comum
+ESP6  , Pedro Porro                 , Espanha            , Grupo H, Comum
+ESP7  , Dani Carvajal               , Espanha            , Grupo H, Comum
+ESP8  , Marc Cucurella              , Espanha            , Grupo H, Comum
+ESP9  , Martin Zubimendi            , Espanha            , Grupo H, Comum
+ESP10 , Rodri                       , Espanha            , Grupo H, Comum
+ESP11 , Pedri                       , Espanha            , Grupo H, Comum
+ESP12 , Fabian Ruiz                 , Espanha            , Grupo H, Comum
+ESP13 , Foto da Equipe              , Espanha            , Grupo H, Comum
+ESP14 , Mikel Merino                , Espanha            , Grupo H, Comum
+ESP15 , Lamine Yamal                , Espanha            , Grupo H, Comum
+ESP16 , Dani Olmo                   , Espanha            , Grupo H, Comum
+ESP17 , Nico Williams               , Espanha            , Grupo H, Comum
+ESP18 , Ferran Torres               , Espanha            , Grupo H, Comum
+ESP19 , Alvaro Morata               , Espanha            , Grupo H, Comum
+ESP20 , Mikel Oyarzabal             , Espanha            , Grupo H, Comum
+CPV1  , Escudo                      , Cabo Verde         , Grupo H, Especial
+CPV2  , Vozinha                     , Cabo Verde         , Grupo H, Comum
+CPV3  , Logan Costa                 , Cabo Verde         , Grupo H, Comum
+CPV4  , Pico                        , Cabo Verde         , Grupo H, Comum
+CPV5  , Diney                       , Cabo Verde         , Grupo H, Comum
+CPV6  , Steven Moreira              , Cabo Verde         , Grupo H, Comum
+CPV7  , Wagner Pina                 , Cabo Verde         , Grupo H, Comum
+CPV8  , Joao Paulo                  , Cabo Verde         , Grupo H, Comum
+CPV9  , Yannick Semedo              , Cabo Verde         , Grupo H, Comum
+CPV10 , Kevin Pina                  , Cabo Verde         , Grupo H, Comum
+CPV11 , Patrick Andrade             , Cabo Verde         , Grupo H, Comum
+CPV12 , Jamiro Monteiro             , Cabo Verde         , Grupo H, Comum
+CPV13 , Foto da Equipe              , Cabo Verde         , Grupo H, Comum
+CPV14 , Deroy Duarte                , Cabo Verde         , Grupo H, Comum
+CPV15 , Garry Rodrigues             , Cabo Verde         , Grupo H, Comum
+CPV16 , Jovane Cabral               , Cabo Verde         , Grupo H, Comum
+CPV17 , Ryan Mendes                 , Cabo Verde         , Grupo H, Comum
+CPV18 , Dailon Livramento           , Cabo Verde         , Grupo H, Comum
+CPV19 , Willy Semedo                , Cabo Verde         , Grupo H, Comum
+CPV20 , Bebe                        , Cabo Verde         , Grupo H, Comum
+KSA1  , Escudo                      , Arabia Saudita     , Grupo H, Especial
+KSA2  , Nawaf Alaqidi               , Arabia Saudita     , Grupo H, Comum
+KSA3  , Abdulrahman Al-Sanbi        , Arabia Saudita     , Grupo H, Comum
+KSA4  , Saud Abdulhamid             , Arabia Saudita     , Grupo H, Comum
+KSA5  , Nawaf Bouwashl              , Arabia Saudita     , Grupo H, Comum
+KSA6  , Jihad Thakri                , Arabia Saudita     , Grupo H, Comum
+KSA7  , Moteb Al-Harbi              , Arabia Saudita     , Grupo H, Comum
+KSA8  , Hassan Altambakti           , Arabia Saudita     , Grupo H, Comum
+KSA9  , Musab Aljuwayr              , Arabia Saudita     , Grupo H, Comum
+KSA10 , Ziyad Aljohani              , Arabia Saudita     , Grupo H, Comum
+KSA11 , Abdullah Alkhaibari         , Arabia Saudita     , Grupo H, Comum
+KSA12 , Nasser Aldawsari            , Arabia Saudita     , Grupo H, Comum
+KSA13 , Foto da Equipe              , Arabia Saudita     , Grupo H, Comum
+KSA14 , Saleh Abu Alshamat          , Arabia Saudita     , Grupo H, Comum
+KSA15 , Marwan Alsahafi             , Arabia Saudita     , Grupo H, Comum
+KSA16 , Salem Aldawsari             , Arabia Saudita     , Grupo H, Comum
+KSA17 , Abdulrahman Al-Aboud        , Arabia Saudita     , Grupo H, Comum
+KSA18 , Feras Akbrikan              , Arabia Saudita     , Grupo H, Comum
+KSA19 , Saleh Alshehri              , Arabia Saudita     , Grupo H, Comum
+KSA20 , Abdullah Al-Hamdan          , Arabia Saudita     , Grupo H, Comum
+URU1  , Escudo                      , Uruguai            , Grupo H, Especial
+URU2  , Sergio Rochet               , Uruguai            , Grupo H, Comum
+URU3  , Santiago Mele               , Uruguai            , Grupo H, Comum
+URU4  , Ronald Araujo               , Uruguai            , Grupo H, Comum
+URU5  , Jose Maria Gimenez          , Uruguai            , Grupo H, Comum
+URU6  , Sebastian Caceres           , Uruguai            , Grupo H, Comum
+URU7  , Mathias Olivera             , Uruguai            , Grupo H, Comum
+URU8  , Guillermo Varela            , Uruguai            , Grupo H, Comum
+URU9  , Nahitan Nandez              , Uruguai            , Grupo H, Comum
+URU10 , Federico Valverde           , Uruguai            , Grupo H, Comum
+URU11 , Giorgian De Arrascaeta      , Uruguai            , Grupo H, Comum
+URU12 , Rodrigo Bentancur           , Uruguai            , Grupo H, Comum
+URU13 , Foto da Equipe              , Uruguai            , Grupo H, Comum
+URU14 , Manuel Ugarte               , Uruguai            , Grupo H, Comum
+URU15 , Nicolas de la Cruz          , Uruguai            , Grupo H, Comum
+URU16 , Maxi Araujo                 , Uruguai            , Grupo H, Comum
+URU17 , Darwin Nunez                , Uruguai            , Grupo H, Comum
+URU18 , Federico Vinas              , Uruguai            , Grupo H, Comum
+URU19 , Rodrigo Aguirre             , Uruguai            , Grupo H, Comum
+URU20 , Facundo Pellistri           , Uruguai            , Grupo H, Comum
+FRA1  , Escudo                      , Franca             , Grupo I, Especial
+FRA2  , Mike Maignan                , Franca             , Grupo I, Comum
+FRA3  , Theo Hernandez              , Franca             , Grupo I, Comum
+FRA4  , William Saliba              , Franca             , Grupo I, Comum
+FRA5  , Jules Kounde                , Franca             , Grupo I, Comum
+FRA6  , Ibrahima Konate             , Franca             , Grupo I, Comum
+FRA7  , Dayot Upamecano             , Franca             , Grupo I, Comum
+FRA8  , Lucas Digne                 , Franca             , Grupo I, Comum
+FRA9  , Aurelien Tchouameni         , Franca             , Grupo I, Comum
+FRA10 , Eduardo Camavinga           , Franca             , Grupo I, Comum
+FRA11 , Manu Kone                   , Franca             , Grupo I, Comum
+FRA12 , Adrien Rabiot               , Franca             , Grupo I, Comum
+FRA13 , Foto da Equipe              , Franca             , Grupo I, Comum
+FRA14 , Michael Olise               , Franca             , Grupo I, Comum
+FRA15 , Ousmane Dembele             , Franca             , Grupo I, Comum
+FRA16 , Bradley Barcola             , Franca             , Grupo I, Comum
+FRA17 , Desire Doue                 , Franca             , Grupo I, Comum
+FRA18 , Kingsley Coman              , Franca             , Grupo I, Comum
+FRA19 , Hugo Ekitike                , Franca             , Grupo I, Comum
+FRA20 , Kylian Mbappe               , Franca             , Grupo I, Comum
+SEN1  , Escudo                      , Senegal            , Grupo I, Especial
+SEN2  , Eduardo Mendy               , Senegal            , Grupo I, Comum
+SEN3  , Yehvann Diouf               , Senegal            , Grupo I, Comum
+SEN4  , Moussa Niakhate             , Senegal            , Grupo I, Comum
+SEN5  , Abdoulaye Seck              , Senegal            , Grupo I, Comum
+SEN6  , Ismail Jakobs               , Senegal            , Grupo I, Comum
+SEN7  , El Hadji Malick Diouf       , Senegal            , Grupo I, Comum
+SEN8  , Kalidou Koulibaly           , Senegal            , Grupo I, Comum
+SEN9  , Idrissa Gana Gueye          , Senegal            , Grupo I, Comum
+SEN10 , Pape Matar Sarr             , Senegal            , Grupo I, Comum
+SEN11 , Pape Gueye                  , Senegal            , Grupo I, Comum
+SEN12 , Habib Diarra                , Senegal            , Grupo I, Comum
+SEN13 , Foto da Equipe              , Senegal            , Grupo I, Comum
+SEN14 , Lamine Camara               , Senegal            , Grupo I, Comum
+SEN15 , Sadio Mane                  , Senegal            , Grupo I, Comum
+SEN16 , Ismaila Sarr                , Senegal            , Grupo I, Comum
+SEN17 , Boulaye Dia                 , Senegal            , Grupo I, Comum
+SEN18 , Iliman Ndiaye               , Senegal            , Grupo I, Comum
+SEN19 , Nicolas Jackson             , Senegal            , Grupo I, Comum
+SEN20 , Krepin Diatta               , Senegal            , Grupo I, Comum
+IRQ1  , Escudo                      , Iraque             , Grupo I, Especial
+IRQ2  , Jalal Hassan                , Iraque             , Grupo I, Comum
+IRQ3  , Rebin Sulaka                , Iraque             , Grupo I, Comum
+IRQ4  , Hussein Ali                 , Iraque             , Grupo I, Comum
+IRQ5  , Akam Hashem                 , Iraque             , Grupo I, Comum
+IRQ6  , Merchas Doski               , Iraque             , Grupo I, Comum
+IRQ7  , Zaid Tahseen                , Iraque             , Grupo I, Comum
+IRQ8  , Manaf Younis                , Iraque             , Grupo I, Comum
+IRQ9  , Zidane Iqbal                , Iraque             , Grupo I, Comum
+IRQ10 , Amir Al-Ammari              , Iraque             , Grupo I, Comum
+IRQ11 , Ibrahim Bavesh              , Iraque             , Grupo I, Comum
+IRQ12 , Ali Jasim                   , Iraque             , Grupo I, Comum
+IRQ13 , Foto da Equipe              , Iraque             , Grupo I, Comum
+IRQ14 , Youssef Amyn                , Iraque             , Grupo I, Comum
+IRQ15 , Aimar Sher                  , Iraque             , Grupo I, Comum
+IRQ16 , Marko Farji                 , Iraque             , Grupo I, Comum
+IRQ17 , Osama Rashid                , Iraque             , Grupo I, Comum
+IRQ18 , Ali Al-Hamadi               , Iraque             , Grupo I, Comum
+IRQ19 , Aymen Hussein               , Iraque             , Grupo I, Comum
+IRQ20 , Mohanad Ali                 , Iraque             , Grupo I, Comum
+NOR1  , Escudo                      , Noruega            , Grupo I, Especial
+NOR2  , Orjan Nyland                , Noruega            , Grupo I, Comum
+NOR3  , Julian Ryerson              , Noruega            , Grupo I, Comum
+NOR4  , Leo Ostigard                , Noruega            , Grupo I, Comum
+NOR5  , Kristoffer Vassbakk Ajer    , Noruega            , Grupo I, Comum
+NOR6  , Marcus Holmgren Pedersen    , Noruega            , Grupo I, Comum
+NOR7  , David Mller Wolfe           , Noruega            , Grupo I, Comum
+NOR8  , Torbjrn Heggem              , Noruega            , Grupo I, Comum
+NOR9  , Morten Thorsby              , Noruega            , Grupo I, Comum
+NOR10 , Martin degaard              , Noruega            , Grupo I, Comum
+NOR11 , Sander Berge                , Noruega            , Grupo I, Comum
+NOR12 , Andreas Schjelderup         , Noruega            , Grupo I, Comum
+NOR13 , Foto da Equipe              , Noruega            , Grupo I, Comum
+NOR14 , Patrick Berg                , Noruega            , Grupo I, Comum
+NOR15 , Erling Haaland              , Noruega            , Grupo I, Comum
+NOR16 , Alexander Srloth            , Noruega            , Grupo I, Comum
+NOR17 , Aron Dnnum                  , Noruega            , Grupo I, Comum
+NOR18 , Jorgen Strand Larsen        , Noruega            , Grupo I, Comum
+NOR19 , Antonio Nusa                , Noruega            , Grupo I, Comum
+NOR20 , Oscar Bobb                  , Noruega            , Grupo I, Comum
+ARG1  , Escudo                      , Argentina          , Grupo J, Especial
+ARG2  , Emiliano Martinez           , Argentina          , Grupo J, Comum
+ARG3  , Nahuel Molina               , Argentina          , Grupo J, Comum
+ARG4  , Cristian Romero             , Argentina          , Grupo J, Comum
+ARG5  , Nicolas Otamendi            , Argentina          , Grupo J, Comum
+ARG6  , Nicolas Tagliafico          , Argentina          , Grupo J, Comum
+ARG7  , Leonardo Balerdi            , Argentina          , Grupo J, Comum
+ARG8  , Enzo Fernandez              , Argentina          , Grupo J, Comum
+ARG9  , Alexis Mac Allister         , Argentina          , Grupo J, Comum
+ARG10 , Rodrigo De Paul             , Argentina          , Grupo J, Comum
+ARG11 , Exequiel Palacios           , Argentina          , Grupo J, Comum
+ARG12 , Leandro Paredes             , Argentina          , Grupo J, Comum
+ARG13 , Foto da Equipe              , Argentina          , Grupo J, Comum
+ARG14 , Nico Paz                    , Argentina          , Grupo J, Comum
+ARG15 , Franco Mastantuono          , Argentina          , Grupo J, Comum
+ARG16 , Nico Gonzalez               , Argentina          , Grupo J, Comum
+ARG17 , Lionel Messi                , Argentina          , Grupo J, Comum
+ARG18 , Lautaro Martinez            , Argentina          , Grupo J, Comum
+ARG19 , Julian Alvarez              , Argentina          , Grupo J, Comum
+ARG20 , Giuliano Simeone            , Argentina          , Grupo J, Comum
+ALG1  , Escudo                      , Argelia            , Grupo J, Especial
+ALG2  , Alexis Guendouz             , Argelia            , Grupo J, Comum
+ALG3  , Ramy Bensebaini             , Argelia            , Grupo J, Comum
+ALG4  , Youcef Atal                 , Argelia            , Grupo J, Comum
+ALG5  , Rayan Ait-Nouri             , Argelia            , Grupo J, Comum
+ALG6  , Mohamed Amine Tougai        , Argelia            , Grupo J, Comum
+ALG7  , Aissa Mandi                 , Argelia            , Grupo J, Comum
+ALG8  , Ismael Bennacer             , Argelia            , Grupo J, Comum
+ALG9  , Houssem Aquar               , Argelia            , Grupo J, Comum
+ALG10 , Hicham Boudaoui             , Argelia            , Grupo J, Comum
+ALG11 , Ramiz Zerrouki              , Argelia            , Grupo J, Comum
+ALG12 , Nabil Bentalab              , Argelia            , Grupo J, Comum
+ALG13 , Foto da Equipe              , Argelia            , Grupo J, Comum
+ALG14 , Fares Chaibi                , Argelia            , Grupo J, Comum
+ALG15 , Riyad Mahrez                , Argelia            , Grupo J, Comum
+ALG16 , Said Benrhama               , Argelia            , Grupo J, Comum
+ALG17 , Anis Hadj Moussa            , Argelia            , Grupo J, Comum
+ALG18 , Amine Gouiri                , Argelia            , Grupo J, Comum
+ALG19 , Baghdad Bounedjah           , Argelia            , Grupo J, Comum
+ALG20 , Mohammed Amoura             , Argelia            , Grupo J, Comum
+AUT1  , Escudo                      , Austria            , Grupo J, Especial
+AUT2  , Alexander Schlager          , Austria            , Grupo J, Comum
+AUT3  , Patrick Pentz               , Austria            , Grupo J, Comum
+AUT4  , David Alaba                 , Austria            , Grupo J, Comum
+AUT5  , Kevin Danso                 , Austria            , Grupo J, Comum
+AUT6  , Philipp Lienhart            , Austria            , Grupo J, Comum
+AUT7  , Stefan Bosch                , Austria            , Grupo J, Comum
+AUT8  , Phillipp Mwene              , Austria            , Grupo J, Comum
+AUT9  , Alexander Prass             , Austria            , Grupo J, Comum
+AUT10 , Xavier Schlager             , Austria            , Grupo J, Comum
+AUT11 , Marcel Sabitzer             , Austria            , Grupo J, Comum
+AUT12 , Konrad Laimer               , Austria            , Grupo J, Comum
+AUT13 , Foto da Equipe              , Austria            , Grupo J, Comum
+AUT14 , Florian Grillitsch          , Austria            , Grupo J, Comum
+AUT15 , Nicolas Seiwald             , Austria            , Grupo J, Comum
+AUT16 , Romano Schmid               , Austria            , Grupo J, Comum
+AUT17 , Patrick Wimmer              , Austria            , Grupo J, Comum
+AUT18 , Christoph Baumgartner       , Austria            , Grupo J, Comum
+AUT19 , Michael Gregoritsch         , Austria            , Grupo J, Comum
+AUT20 , Marko Arnautovic            , Austria            , Grupo J, Comum
+JOR1  , Escudo                      , Jordania           , Grupo J, Especial
+JOR2  , Yazeed Abulaila             , Jordania           , Grupo J, Comum
+JOR3  , Ihsan Haddad                , Jordania           , Grupo J, Comum
+JOR4  , Mohammad Abu Hashish        , Jordania           , Grupo J, Comum
+JOR5  , Yazan Al-Arab               , Jordania           , Grupo J, Comum
+JOR6  , Abdallah Nasib              , Jordania           , Grupo J, Comum
+JOR7  , Saleem Obaid                , Jordania           , Grupo J, Comum
+JOR8  , Mohammad Abualnadi          , Jordania           , Grupo J, Comum
+JOR9  , Ibrahim Saadeh              , Jordania           , Grupo J, Comum
+JOR10 , Nizar Al-Rashdan            , Jordania           , Grupo J, Comum
+JOR11 , Noor Al-Rawabdeh            , Jordania           , Grupo J, Comum
+JOR12 , Mohannad Abu Taha           , Jordania           , Grupo J, Comum
+JOR13 , Foto da Equipe              , Jordania           , Grupo J, Comum
+JOR14 , Amer Jamous                 , Jordania           , Grupo J, Comum
+JOR15 , Musa Al-Taamari             , Jordania           , Grupo J, Comum
+JOR16 , Yazan Al-Naimat             , Jordania           , Grupo J, Comum
+JOR17 , Mahmoud Al-Mardi            , Jordania           , Grupo J, Comum
+JOR18 , Ali Olwan                   , Jordania           , Grupo J, Comum
+JOR19 , Mohammad Abu Zrayq          , Jordania           , Grupo J, Comum
+JOR20 , Ibrahim Sabra               , Jordania           , Grupo J, Comum
+POR1  , Escudo                      , Portugal           , Grupo K, Especial
+POR2  , Diogo Costa                 , Portugal           , Grupo K, Comum
+POR3  , Jose Sa                     , Portugal           , Grupo K, Comum
+POR4  , Ruben Dias                  , Portugal           , Grupo K, Comum
+POR5  , Joao Cancelo                , Portugal           , Grupo K, Comum
+POR6  , Diogo Dalot                 , Portugal           , Grupo K, Comum
+POR7  , Nuno Mendes                 , Portugal           , Grupo K, Comum
+POR8  , Goncalo Inacio              , Portugal           , Grupo K, Comum
+POR9  , Bernardo Silva              , Portugal           , Grupo K, Comum
+POR10 , Bruno Fernandes             , Portugal           , Grupo K, Comum
+POR11 , Ruben Neves                 , Portugal           , Grupo K, Comum
+POR12 , Vitinha                     , Portugal           , Grupo K, Comum
+POR13 , Foto da Equipe              , Portugal           , Grupo K, Comum
+POR14 , Joao Neves                  , Portugal           , Grupo K, Comum
+POR15 , Cristiano Ronaldo           , Portugal           , Grupo K, Comum
+POR16 , Francisco Trincao           , Portugal           , Grupo K, Comum
+POR17 , Joao Felix                  , Portugal           , Grupo K, Comum
+POR18 , Goncalo Ramos               , Portugal           , Grupo K, Comum
+POR19 , Pedro Neto                  , Portugal           , Grupo K, Comum
+POR20 , Rafael Leao                 , Portugal           , Grupo K, Comum
+COD1  , Escudo                      , RD Congo           , Grupo K, Especial
+COD2  , Lionel Mpasi                , RD Congo           , Grupo K, Comum
+COD3  , Aaron Wan-Bissaka           , RD Congo           , Grupo K, Comum
+COD4  , Axel Tuanzebe               , RD Congo           , Grupo K, Comum
+COD5  , Arthur Masuaku              , RD Congo           , Grupo K, Comum
+COD6  , Chancel Mbemba              , RD Congo           , Grupo K, Comum
+COD7  , Joris Kayembe               , RD Congo           , Grupo K, Comum
+COD8  , Charles Pickel              , RD Congo           , Grupo K, Comum
+COD9  , Ngal'ayel Mukau             , RD Congo           , Grupo K, Comum
+COD10 , Edo Kayembe                 , RD Congo           , Grupo K, Comum
+COD11 , Samuel Moutoussamy          , RD Congo           , Grupo K, Comum
+COD12 , Noah Sadiki                 , RD Congo           , Grupo K, Comum
+COD13 , Foto da Equipe              , RD Congo           , Grupo K, Comum
+COD14 , Theo Bongonda               , RD Congo           , Grupo K, Comum
+COD15 , Meschak Elia                , RD Congo           , Grupo K, Comum
+COD16 , Yoane Wissa                 , RD Congo           , Grupo K, Comum
+COD17 , Brian Cipenga               , RD Congo           , Grupo K, Comum
+COD18 , Fiston Mayele               , RD Congo           , Grupo K, Comum
+COD19 , Cedric Bakambu              , RD Congo           , Grupo K, Comum
+COD20 , Nathanael Mbuku             , RD Congo           , Grupo K, Comum
+UZB1  , Escudo                      , Uzbequistao        , Grupo K, Especial
+UZB2  , Utkir Yusupov               , Uzbequistao        , Grupo K, Comum
+UZB3  , Farrukh Savfiev             , Uzbequistao        , Grupo K, Comum
+UZB4  , Sherzod Nasrullaev          , Uzbequistao        , Grupo K, Comum
+UZB5  , Umar Eshmurodov             , Uzbequistao        , Grupo K, Comum
+UZB6  , Husniddin Aliqulov          , Uzbequistao        , Grupo K, Comum
+UZB7  , Rustamjon Ashurmatov        , Uzbequistao        , Grupo K, Comum
+UZB8  , Khojiakbar Alijonov         , Uzbequistao        , Grupo K, Comum
+UZB9  , Abdukodir Khusanov          , Uzbequistao        , Grupo K, Comum
+UZB10 , Odiljon Hamrobekov          , Uzbequistao        , Grupo K, Comum
+UZB11 , Otabek Shukurov             , Uzbequistao        , Grupo K, Comum
+UZB12 , Jamshid Iskanderov          , Uzbequistao        , Grupo K, Comum
+UZB13 , Foto da Equipe              , Uzbequistao        , Grupo K, Comum
+UZB14 , Azizbek Turgunboev          , Uzbequistao        , Grupo K, Comum
+UZB15 , Khojimat Erkinov            , Uzbequistao        , Grupo K, Comum
+UZB16 , Eldor Shomurodov            , Uzbequistao        , Grupo K, Comum
+UZB17 , Oston Urunov                , Uzbequistao        , Grupo K, Comum
+UZB18 , Jaloliddin Masharipov       , Uzbequistao        , Grupo K, Comum
+UZB19 , Igor Sergeev                , Uzbequistao        , Grupo K, Comum
+UZB20 , Abbosbek Fayzullaev         , Uzbequistao        , Grupo K, Comum
+COL1  , Escudo                      , Colombia           , Grupo K, Especial
+COL2  , Camilo Vargas               , Colombia           , Grupo K, Comum
+COL3  , David Ospina                , Colombia           , Grupo K, Comum
+COL4  , Davinson Sanchez            , Colombia           , Grupo K, Comum
+COL5  , Yerry Mina                  , Colombia           , Grupo K, Comum
+COL6  , Daniel Munoz                , Colombia           , Grupo K, Comum
+COL7  , Johan Mojica                , Colombia           , Grupo K, Comum
+COL8  , Jhon Lucumi                 , Colombia           , Grupo K, Comum
+COL9  , Santiago Arias              , Colombia           , Grupo K, Comum
+COL10 , Jefferson Lerma             , Colombia           , Grupo K, Comum
+COL11 , Kevin Castano               , Colombia           , Grupo K, Comum
+COL12 , Richard Rios                , Colombia           , Grupo K, Comum
+COL13 , Foto da Equipe              , Colombia           , Grupo K, Comum
+COL14 , James Rodriguez             , Colombia           , Grupo K, Comum
+COL15 , Juan Fernando Quintero      , Colombia           , Grupo K, Comum
+COL16 , Jorge Carrascal             , Colombia           , Grupo K, Comum
+COL17 , Jon Arias                   , Colombia           , Grupo K, Comum
+COL18 , Jhon Cordova                , Colombia           , Grupo K, Comum
+COL19 , Luis Suarez                 , Colombia           , Grupo K, Comum
+COL20 , Luis Diaz                   , Colombia           , Grupo K, Comum
+ENG1  , Escudo                      , Inglaterra         , Grupo L, Especial
+ENG2  , Jordan Pickford             , Inglaterra         , Grupo L, Comum
+ENG3  , John Stones                 , Inglaterra         , Grupo L, Comum
+ENG4  , Maric Guehi                 , Inglaterra         , Grupo L, Comum
+ENG5  , Ezri Konsa                  , Inglaterra         , Grupo L, Comum
+ENG6  , Trent Alexander-Arnold      , Inglaterra         , Grupo L, Comum
+ENG7  , Reece James                 , Inglaterra         , Grupo L, Comum
+ENG8  , Dan Burn                    , Inglaterra         , Grupo L, Comum
+ENG9  , Jordan Henderson            , Inglaterra         , Grupo L, Comum
+ENG10 , Declan Rice                 , Inglaterra         , Grupo L, Comum
+ENG11 , Jude Bellingham             , Inglaterra         , Grupo L, Comum
+ENG12 , Cole Palmer                 , Inglaterra         , Grupo L, Comum
+ENG13 , Foto da Equipe              , Inglaterra         , Grupo L, Comum
+ENG14 , Morgan Rogers               , Inglaterra         , Grupo L, Comum
+ENG15 , Anthony Gordon              , Inglaterra         , Grupo L, Comum
+ENG16 , Phil Foden                  , Inglaterra         , Grupo L, Comum
+ENG17 , Bukayo Saka                 , Inglaterra         , Grupo L, Comum
+ENG18 , Harry Kane                  , Inglaterra         , Grupo L, Comum
+ENG19 , Marcus Rashford             , Inglaterra         , Grupo L, Comum
+ENG20 , Ollie Watkins               , Inglaterra         , Grupo L, Comum
+CRO1  , Escudo                      , Croacia            , Grupo L, Especial
+CRO2  , Dominik Livakovic           , Croacia            , Grupo L, Comum
+CRO3  , Duje Caleta-Car             , Croacia            , Grupo L, Comum
+CRO4  , Josko Gvardiol              , Croacia            , Grupo L, Comum
+CRO5  , Josip Stanisic              , Croacia            , Grupo L, Comum
+CRO6  , Luka Vuskovic               , Croacia            , Grupo L, Comum
+CRO7  , Josip Sutalo                , Croacia            , Grupo L, Comum
+CRO8  , Kristijan Jakic             , Croacia            , Grupo L, Comum
+CRO9  , Luka Modric                 , Croacia            , Grupo L, Comum
+CRO10 , Mateo Kovacic               , Croacia            , Grupo L, Comum
+CRO11 , Martin Baturina             , Croacia            , Grupo L, Comum
+CRO12 , Lovro Majer                 , Croacia            , Grupo L, Comum
+CRO13 , Foto da Equipe              , Croacia            , Grupo L, Comum
+CRO14 , Mario Pasalic               , Croacia            , Grupo L, Comum
+CRO15 , Petar Sucic                 , Croacia            , Grupo L, Comum
+CRO16 , Ivan Perisic                , Croacia            , Grupo L, Comum
+CRO17 , Marco Pasalic               , Croacia            , Grupo L, Comum
+CRO18 , Ante Budimir                , Croacia            , Grupo L, Comum
+CRO19 , Andrej Kramaric             , Croacia            , Grupo L, Comum
+CRO20 , Franjo Ivanovic             , Croacia            , Grupo L, Comum
+GHA1  , Escudo                      , Gana               , Grupo L, Especial
+GHA2  , Lawrence Ati Zigi           , Gana               , Grupo L, Comum
+GHA3  , Tariq Lamptey               , Gana               , Grupo L, Comum
+GHA4  , Mohammed Salisu             , Gana               , Grupo L, Comum
+GHA5  , Alidu Seidu                 , Gana               , Grupo L, Comum
+GHA6  , Alexander Djiku             , Gana               , Grupo L, Comum
+GHA7  , Gideon Mensah               , Gana               , Grupo L, Comum
+GHA8  , Caleb Yirenkyi              , Gana               , Grupo L, Comum
+GHA9  , Abdul Issahaku Fatawu       , Gana               , Grupo L, Comum
+GHA10 , Thomas Partey               , Gana               , Grupo L, Comum
+GHA11 , Salis Abdul Samed           , Gana               , Grupo L, Comum
+GHA12 , Kamaldeen Sulemana          , Gana               , Grupo L, Comum
+GHA13 , Foto da Equipe              , Gana               , Grupo L, Comum
+GHA14 , Mohammed Kudus              , Gana               , Grupo L, Comum
+GHA15 , Inaki Williams              , Gana               , Grupo L, Comum
+GHA16 , Jordan Ayew                 , Gana               , Grupo L, Comum
+GHA17 , Andrew Ayew                 , Gana               , Grupo L, Comum
+GHA18 , Joseph Paintsil             , Gana               , Grupo L, Comum
+GHA19 , Osman Bukari                , Gana               , Grupo L, Comum
+GHA20 , Antoine Semenyo             , Gana               , Grupo L, Comum
+PAN1  , Escudo                      , Panama             , Grupo L, Especial
+PAN2  , Orlando Mosquera            , Panama             , Grupo L, Comum
+PAN3  , Luis Mejia                  , Panama             , Grupo L, Comum
+PAN4  , Fidel Escobar               , Panama             , Grupo L, Comum
+PAN5  , Andres Andrade              , Panama             , Grupo L, Comum
+PAN6  , Michael Amir Murillo        , Panama             , Grupo L, Comum
+PAN7  , Eric Davis                  , Panama             , Grupo L, Comum
+PAN8  , Jose Cordoba                , Panama             , Grupo L, Comum
+PAN9  , Cesar Blackman              , Panama             , Grupo L, Comum
+PAN10 , Cristian Martinez           , Panama             , Grupo L, Comum
+PAN11 , Anibal Godoy                , Panama             , Grupo L, Comum
+PAN12 , Adalberto Carrasquilla      , Panama             , Grupo L, Comum
+PAN13 , Foto da Equipe              , Panama             , Grupo L, Comum
+PAN14 , Edgar Barcenas              , Panama             , Grupo L, Comum
+PAN15 , Carlos Harvey               , Panama             , Grupo L, Comum
+PAN16 , Ismael Diaz                 , Panama             , Grupo L, Comum
+PAN17 , Jose Fajardo                , Panama             , Grupo L, Comum
+PAN18 , Cecilio Waterman            , Panama             , Grupo L, Comum
+PAN19 , Jose Luiz Rodriguez         , Panama             , Grupo L, Comum
+PAN20 , Alberto Quintero            , Panama             , Grupo L, Comum
