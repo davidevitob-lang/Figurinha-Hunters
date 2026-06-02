@@ -1,39 +1,213 @@
+#include "raylib.h"
 #include "map.h"
 
-// Criamos uma loja de teste
-PontoInteresse lojaExemplo;
+// Variáveis do Mapa
+static int turnoAtual = 1;
+static int dinheiro = 0;
+static int pacotesFechados = 0;
+static int pacotesAbertos = 0;
+
+static Rectangle btnTrabalho;
+static Rectangle btnBanca;
+static Rectangle btnAbrir;
+
+// Variáveis do Sorteio
+static bool telaGacha = false;
+static int sorteadas[5] = {0};
+
+// Variáveis do obstáculo
+static bool telaObstaculo = false;
+static float timerObstaculo = 0.0f;
+static int mesaAlvo = 0;
+static int mesaEsq = 0;
+static int mesaDir = 0;
+static Rectangle btnMesaEsq;
+static Rectangle btnMesaDir;
 
 void InitMap(void) {
-    lojaExemplo.area = (Rectangle){ 400, 300, 50, 50 }; // Posição no meio da tela
-    lojaExemplo.cor = GRAY;
-    lojaExemplo.ativa = false;
-    lojaExemplo.tempoAtivacao = 0.0f;
+    turnoAtual = 1;
+    dinheiro = 0;
+    pacotesFechados = 0;
+    pacotesAbertos = 0;
+    telaGacha = false;
+    
+    btnTrabalho = (Rectangle){ 100, 350, 150, 150 };
+    btnBanca = (Rectangle){ 550, 250, 120, 100 };
+    btnAbrir = (Rectangle){ 650, 500, 130, 40 }; // Fica no canto inferior direito
+    btnMesaEsq = (Rectangle){ 200, 300, 150, 150 };
+    btnMesaDir = (Rectangle){ 450, 300, 150, 150 };
 }
 
-void UpdateMap(void) {
-    Vector2 mousePos = GetMousePosition();
+void UpdateMap(Figurinha *album, int total) {
+    Vector2 mouse = GetMousePosition();
 
-    // Se clicar com o botão esquerdo em cima da loja
+    if (telaGacha) {
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) telaGacha = false;
+        return; 
+    }
+
+    // lógica do obstáculo
+    if (telaObstaculo) {
+        // Reduz o tempo; GetFrameTime calcula o tempo exato desde o último frame
+        timerObstaculo -= GetFrameTime();
+
+        // Se o tempo acabar perdeu a chance
+        if (timerObstaculo <= 0.0f) {
+            telaObstaculo = false;
+            turnoAtual++;
+            return;
+        }
+
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            // Se escolheu a mesa da Esquerda
+            if (CheckCollisionPointRec(mouse, btnMesaEsq)) {
+                if (mesaEsq == mesaAlvo) dinheiro += (turnoAtual >= 5) ? 25 : 15; 
+                telaObstaculo = false;
+                turnoAtual++;
+            } 
+            // Se escolheu a mesa da Direita
+            else if (CheckCollisionPointRec(mouse, btnMesaDir)) {
+                if (mesaDir == mesaAlvo) dinheiro += (turnoAtual >= 5) ? 25 : 15; 
+                telaObstaculo = false;
+                turnoAtual++;
+            }
+        }
+        return; // Pausa o resto do mapa enquanto o evento acontece
+    }
+
+    // eventos do mapa
     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-        if (CheckCollisionPointRec(mousePos, lojaExemplo.area)) {
-            lojaExemplo.ativa = true;
-            lojaExemplo.tempoAtivacao = GetTime(); // Marca o momento do clique
+        
+        // Lógica do Trabalho
+        if (CheckCollisionPointRec(mouse, btnTrabalho)) {
+            int chance = GetRandomValue(1, 100);
+            
+            // 25% de chance de dar problema
+            if (chance <= 25) {
+                telaObstaculo = true;
+                timerObstaculo = 5.0f; // 5 segundos cravados
+                mesaAlvo = GetRandomValue(1, 20); // Mesa procurada de 1 a 20
+                
+                // Sorteia aleatoriamente em qual lado a mesa certa vai ficar
+                if (GetRandomValue(0, 1) == 0) {
+                    mesaEsq = mesaAlvo;
+                    mesaDir = GetRandomValue(21, 40); // A outra mesa recebe um número falso
+                } else {
+                    mesaDir = mesaAlvo;
+                    mesaEsq = GetRandomValue(21, 40); 
+                }
+            } 
+            else { // 75% de chance de ser um dia normal
+                dinheiro += (turnoAtual >= 5) ? 25 : 15; 
+                turnoAtual++;
+            }
+        }
+        
+        // Lógica da Banca
+        else if (CheckCollisionPointRec(mouse, btnBanca) && turnoAtual <= 4) {
+            if (dinheiro >= 10) {
+                dinheiro -= 10;
+                pacotesFechados++;
+                turnoAtual++;
+            }
+        }
+        // Lógica de Abrir o Pacote
+        else if (CheckCollisionPointRec(mouse, btnAbrir) && pacotesFechados > 0) {
+            pacotesFechados--;
+            pacotesAbertos++;
+            telaGacha = true;
+            
+            // Sorteia 5 figurinhas
+            for (int i = 0; i < 5; i++) {
+                int indexSorteado = GetRandomValue(0, total - 1);
+                sorteadas[i] = indexSorteado;
+                album[indexSorteado].quantidade++; 
+            }
+
+            // salva o progresso
+            salvarDados(album, total);
+        }
+
+        if (turnoAtual > 7) turnoAtual = 1;
+    }
+}
+
+void DrawMap(Figurinha *album, int total) {
+    // Desenha Fundo
+    if (turnoAtual <= 3) ClearBackground(SKYBLUE);
+    else if (turnoAtual == 4) ClearBackground(ORANGE);
+    else ClearBackground(DARKBLUE);
+
+    DrawRectangle(0, 450, 800, 150, DARKGREEN);
+
+    // Prédios
+    DrawRectangleRec(btnTrabalho, GRAY);
+    DrawText("TRABALHO", btnTrabalho.x + 10, btnTrabalho.y + 60, 20, WHITE);
+
+    DrawRectangleRec(btnBanca, RED);
+    DrawText("BANCA", btnBanca.x + 20, btnBanca.y + 40, 20, WHITE);
+    if (turnoAtual > 4) DrawText("FECHADO", btnBanca.x + 10, btnBanca.y + 65, 20, BLACK);
+
+    // HUD (Dinheiro e Turno)
+    DrawText(TextFormat("Turno: %d/7", turnoAtual), 20, 20, 20, WHITE);
+    DrawText(TextFormat("Dinheiro: R$ %d", dinheiro), 20, 50, 20, GREEN);
+    DrawText("ESC para Menu", 650, 20, 15, LIGHTGRAY);
+    DrawText(TextFormat("Aperte V para abrir o album."), 20, 110, 20, WHITE);
+    
+    // Mostra o inventário de pacotes e o botão se tiver algum fechado
+    DrawText(TextFormat("Pacotes Inventário: %d", pacotesFechados), 20, 80, 20, PURPLE);
+    DrawText(TextFormat("Pacotes Abertos: %d", pacotesAbertos), 20, 565, 15, WHITE);
+    if (pacotesFechados > 0) {
+        DrawRectangleRec(btnAbrir, PURPLE);
+        DrawText("ABRIR PACOTE", btnAbrir.x + 10, btnAbrir.y + 12, 15, WHITE);
+    }
+
+    // tela de abrir pacote de figurinha (Desenhada por cima de tudo)
+    if (telaGacha) {
+        // Fade escurece a tela inteira com 80% de opacidade
+        DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.8f)); 
+        DrawRectangle(150, 100, 500, 400, RAYWHITE); // O Cartão branco de fundo
+
+        DrawText("NOVA CONQUISTA!", 280, 120, 25, DARKBLUE);
+        DrawText("Clique em qualquer lugar para guardar", 210, 460, 15, GRAY);
+
+        // Desenha 5 figurinhas
+        for (int i = 0; i < 5; i++) {
+            int posX = 170 + (i * 90);
+            DrawRectangle(posX, 180, 80, 120, LIGHTGRAY);
+            DrawRectangleLines(posX, 180, 80, 120, DARKGRAY);
+
+            int index = sorteadas[i];
+            const char* nome = album[index].titulo;
+
+            // Escreve o ID
+            DrawText(TextFormat("#%s", album[index].codigo), posX + 5, 190, 10, DARKGRAY);
+            
+            // Quebra o nome em duas linhas para caber na carta
+            DrawText(TextSubtext(nome, 0, 8), posX + 5, 230, 12, BLACK);
+            DrawText(TextSubtext(nome, 8, 8), posX + 5, 245, 12, BLACK);
         }
     }
+        // tela de obstaculo
+    if (telaObstaculo) {
+        // Escurece o fundo
+        DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.9f)); 
+        
+        DrawText("IMPREVISTO NO TRABALHO!", 240, 100, 25, RED);
+        DrawText(TextFormat("Pedido para mesa %d, mas onde fica essa mesa?", mesaAlvo), 120, 150, 20, WHITE);
+        
+        // A cor do tempo fica vermelha quando faltar menos de 2 segundos
+        Color corTempo = (timerObstaculo > 2.0f) ? GREEN : RED;
+        DrawText(TextFormat("Tempo: %.1f", timerObstaculo), 350, 200, 25, corTempo);
 
-    // Se passaram 3 segundos, desativa o "cubo verde"
-    if (lojaExemplo.ativa && (GetTime() - lojaExemplo.tempoAtivacao >= 3.0f)) {
-        lojaExemplo.ativa = false;
+        // Desenha a Mesa Esquerda
+        DrawRectangleRec(btnMesaEsq, DARKGRAY);
+        DrawRectangleLines(btnMesaEsq.x, btnMesaEsq.y, btnMesaEsq.width, btnMesaEsq.height, LIGHTGRAY);
+        DrawText(TextFormat("Mesa %d", mesaEsq), btnMesaEsq.x + 35, btnMesaEsq.y + 65, 25, WHITE);
+
+        // Desenha a Mesa Direita
+        DrawRectangleRec(btnMesaDir, DARKGRAY);
+        DrawRectangleLines(btnMesaDir.x, btnMesaDir.y, btnMesaDir.width, btnMesaDir.height, LIGHTGRAY);
+        DrawText(TextFormat("Mesa %d", mesaDir), btnMesaDir.x + 35, btnMesaDir.y + 65, 25, WHITE);
     }
-}
-
-void DrawMap(void) {
-    // Desenha a base da loja
-    DrawRectangleRec(lojaExemplo.area, lojaExemplo.cor);
-    DrawText("LOJA", lojaExemplo.area.x, lojaExemplo.area.y - 20, 10, BLACK);
-
-    // Se estiver ativa (dentro dos 3s), desenha o feedback verde
-    if (lojaExemplo.ativa) {
-        DrawRectangle(lojaExemplo.area.x + 10, lojaExemplo.area.y + 10, 30, 30, GREEN);
-    }
-}
+} // Fim da função DrawMap

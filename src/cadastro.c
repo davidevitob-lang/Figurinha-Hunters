@@ -41,12 +41,12 @@ void UpdateDrawCadastro(Figurinha **album, int *total, int *estadoAtual, int ind
 
     if ((mouseSobre && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) || IsKeyPressed(KEY_ENTER)) {
         if (indiceEdicao == -1) {
-            // MODO NOVO: Cria espaço e salva
+            // novo: cria espaço e salva
             *album = alocarEspacoVazio(*album, total);
             strcpy((*album)[*total - 1].titulo, inputTitulo);
             strcpy((*album)[*total - 1].codigo, inputCodigo);
         } else {
-            // MODO EDIÇÃO: Apenas sobrescreve os dados no índice atual
+            // edição: apenas sobrescreve os dados no índice atual
             strcpy((*album)[indiceEdicao].titulo, inputTitulo);
             strcpy((*album)[indiceEdicao].codigo, inputCodigo);
         }

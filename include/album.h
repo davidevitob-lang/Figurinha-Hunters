@@ -11,6 +11,7 @@ typedef struct {
     char tipo[30];
     bool colada;
     int paraTroca;
+    int quantidade;
 } Figurinha;
 
 // Gerenciamento de Dados
@@ -24,5 +25,7 @@ Figurinha* removerFigurinha(Figurinha *album, int *total, int indice);
 Figurinha* resetarAlbum(Figurinha *album, int *total);                
 
 int pesquisarFigurinha(Figurinha *album, int total, const char *termo);
+void salvarDados(Figurinha *album, int total);
+void DesenharAlbumGrade(Figurinha *album, int total, int *paginaAtual, char *filtro, bool buscaFocada);
 
 #endif
