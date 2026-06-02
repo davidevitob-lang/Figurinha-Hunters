@@ -1,7 +1,7 @@
 #ifndef MAP_H
 #define MAP_H
-
 #include "raylib.h"
+#include "album.h"
 
 // Estrutura para representar uma loja ou ponto de interesse
 typedef struct {
@@ -12,7 +12,7 @@ typedef struct {
 } PontoInteresse;
 
 void InitMap(void);
-void UpdateMap(void);
-void DrawMap(void);
+void UpdateMap(Figurinha *album, int total);
+void DrawMap(Figurinha *album, int total);
 
 #endif

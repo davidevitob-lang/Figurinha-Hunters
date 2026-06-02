@@ -8,6 +8,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "album.h"
+#include "raylib.h"
 
 /**
  * @brief Remove espaços em branco do início e do fim de uma string (Trim).
@@ -49,7 +50,7 @@ Figurinha* carregarDadosIniciais(int *total) {
     Figurinha *album = NULL;
     *total = 0;
 
-    // 1. TENTA CARREGAR O BINÁRIO (Progresso salvo)
+    // com progresso salvo o binário é carregado
     FILE *bin = fopen("dados.bin", "rb");
     if (bin) {
         fseek(bin, 0, SEEK_END);
@@ -65,14 +66,13 @@ Figurinha* carregarDadosIniciais(int *total) {
         return album;
     }
 
-    // 2. SE NÃO HÁ BINÁRIO, TENTA O CSV (Primeira Execução)
+    // Primeira Execução onde sem binário usa o csv
     FILE *csv = fopen("figurinhas2026.csv", "r");
     if (csv) {
         char linha[512];
         fgets(linha, sizeof(linha), csv); // Pula o cabeçalho: codigo, titulo, secao, grupo, tipo
 
         while (fgets(linha, sizeof(linha), csv)) {
-            // Remove o \n
             linha[strcspn(linha, "\r\n")] = 0;
 
             (*total)++;
@@ -103,6 +103,7 @@ Figurinha* carregarDadosIniciais(int *total) {
             // Campos de controle
             album[i].colada = false;
             album[i].paraTroca = 0;
+            album[i].quantidade = 0;
         }
         fclose(csv);
         printf("Primeira execucao: %d figurinhas carregadas do CSV.\n", *total);
@@ -191,4 +192,107 @@ void exportarCSV(Figurinha *album, int total) {
                 album[i].grupo, album[i].tipo, album[i].colada, album[i].paraTroca);
     }
     fclose(f);
+}
+
+void DesenharAlbumGrade(Figurinha *album, int total, int *paginaAtual, char *filtro, bool buscaFocada) {
+    Vector2 mouse = GetMousePosition();
+    int desenhados = 0;
+    int count = 0;
+    int indexInicial = (*paginaAtual) * 8;
+
+    // cabeçalho com a Caixa de Busca Clicável
+    DrawRectangle(0, 0, 800, 80, DARKBLUE);
+    
+    Rectangle barraBusca = { 20, 20, 300, 40 };
+    DrawRectangleRec(barraBusca, buscaFocada ? RAYWHITE : LIGHTGRAY);
+    DrawRectangleLines(barraBusca.x, barraBusca.y, barraBusca.width, barraBusca.height, buscaFocada ? RED : GRAY);
+
+    if (filtro[0] == '\0') DrawText("Clique aqui para buscar...", 30, 32, 18, GRAY);
+    else DrawText(filtro, 30, 30, 20, BLACK);
+
+    DrawText(TextFormat("Página: %d", (*paginaAtual) + 1), 650, 30, 20, LIGHTGRAY);
+
+    // Renderização
+    for (int i = 0; i < total; i++) {
+        if (filtro[0] == '\0' || strstr(album[i].codigo, filtro) != NULL) {
+            if (count >= indexInicial && desenhados < 8) {
+                int coluna = desenhados % 4;
+                int linha = desenhados / 4;
+                int posX = 40 + (coluna * 185);
+                int posY = 110 + (linha * 210);
+                Rectangle cardArea = { (float)posX, (float)posY, 160, 190 };
+
+                bool colada = album[i].colada;
+                int qtd = album[i].quantidade; 
+
+                if (colada) {
+                    DrawRectangleRec(cardArea, RAYWHITE);
+                    DrawRectangleLines(posX, posY, 160, 190, BLUE);
+                    DrawText("COLADA", posX + 50, posY + 85, 14, DARKBLUE);
+                    DrawText(TextFormat("Repetidas: %d", qtd), posX + 10, posY + 165, 14, GREEN);
+                } 
+                else if (qtd > 0) {
+                    DrawRectangleRec(cardArea, YELLOW);
+                    DrawRectangleLines(posX, posY, 160, 190, ORANGE);
+                    DrawText("CLIQUE P/", posX + 45, posY + 80, 14, BLACK);
+                    DrawText("COLAR", posX + 55, posY + 100, 14, BLACK);
+
+                    if (CheckCollisionPointRec(mouse, cardArea) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                        album[i].colada = true;
+                        album[i].quantidade--; 
+                        salvarDados(album, total); 
+                    }
+                } 
+                else {
+                    DrawRectangleRec(cardArea, Fade(LIGHTGRAY, 0.5f));
+                    DrawRectangleLines(posX, posY, 160, 190, GRAY);
+                    DrawText("BLOQUEADO", posX + 35, posY + 85, 14, GRAY);
+                }
+
+                DrawText(album[i].codigo, posX + 10, posY + 15, 16, (colada || qtd>0) ? DARKGRAY : GRAY);
+                DrawText(TextSubtext(album[i].titulo, 0, 12), posX + 10, posY + 50, 14, (colada || qtd>0) ? BLACK : DARKGRAY);
+
+                desenhados++;
+            }
+            count++; 
+        }
+    }
+
+    // Rodapé com Botões de Página
+    DrawRectangle(0, 540, 800, 60, LIGHTGRAY);
+    DrawText("ESC para Menu", 340, 560, 18, DARKGRAY);
+
+    Rectangle btnAnt = { 40, 550, 150, 40 };
+    Rectangle btnProx = { 610, 550, 150, 40 };
+    
+    bool podeVoltar = (*paginaAtual > 0);
+    bool podeAvancar = (count > indexInicial + 8);
+
+    // Desenha os botões
+    DrawRectangleRec(btnAnt, podeVoltar ? DARKGRAY : GRAY);
+    DrawText("<- ANTERIOR (A)", btnAnt.x + 10, btnAnt.y + 12, 15, WHITE);
+
+    DrawRectangleRec(btnProx, podeAvancar ? DARKGRAY : GRAY);
+    DrawText("PROXIMA (D) ->", btnProx.x + 15, btnProx.y + 12, 15, WHITE);
+
+    // lógica de click para mudar de página
+    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        if (podeVoltar && CheckCollisionPointRec(mouse, btnAnt)) (*paginaAtual)--;
+        if (podeAvancar && CheckCollisionPointRec(mouse, btnProx)) (*paginaAtual)++;
+    }
+
+    // lógica para funcionar o A e D apenas se não estiver digitando
+    if (!buscaFocada) {
+        if (IsKeyPressed(KEY_A) && podeVoltar) (*paginaAtual)--;
+        if (IsKeyPressed(KEY_D) && podeAvancar) (*paginaAtual)++;
+    }
+}
+
+// Função simples para salvar o estado atual do álbum no arquivo binário
+void salvarDados(Figurinha *album, int total) {
+    FILE *bin = fopen("dados.bin", "wb");
+    if (bin != NULL) {
+        fwrite(album, sizeof(Figurinha), total, bin);
+        fclose(bin);
+    }
 }

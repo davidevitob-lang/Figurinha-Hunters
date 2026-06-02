@@ -33,4 +33,4 @@ run: all
 	$(BIN)
 
 clean:
-	$(RM) $(BIN)
+	del /q /f output\jogo.exe
