@@ -1,5 +1,3 @@
-SHELL = cmd.exe
-
 # Detecta o sistema operacional
 ifdef OS
   OS := $(strip $(OS))
@@ -23,14 +21,13 @@ else
 	RM = rm -f
 endif
 
-SRC = $(wildcard src/*.c)
+SRC = src/*.c
 
 all:
-	@if not exist output mkdir output
 	gcc $(SRC) $(INCLUDE) $(LIBS) -o $(BIN) $(EXTRA_FLAGS)
 
 run: all
 	$(BIN)
 
 clean:
-	del /q /f output\jogo.exe
+	$(RM) $(BIN)
