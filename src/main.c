@@ -170,7 +170,7 @@ int main(void) {
                     while(GetCharPressed() > 0) {} 
                 }
 
-                if (IsKeyPressed(KEY_ESCAPE)) estado = ESTADO_MENU;
+                if (IsKeyPressed(KEY_ESCAPE)) estado = ESTADO_JOGAR;
                 break;
             }
 
@@ -214,7 +214,7 @@ int main(void) {
                 DrawRectangleRec(btnReset, BLACK); DrawText("RESET (!)", 515, 40, 18, WHITE);
             }
             else if (estado == ESTADO_JOGAR) {
-                DrawMap(meuAlbum, total);
+                DrawMap(meuAlbum);
                 //DrawText("MAPA DE TESTE - ESC para Voltar", 20, 20, 20, DARKGRAY);
             }
 

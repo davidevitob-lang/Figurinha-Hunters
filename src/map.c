@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "map.h"
+#include "album.h"
 
 // Variáveis do Mapa
 static int turnoAtual = 1;
@@ -132,7 +133,7 @@ void UpdateMap(Figurinha *album, int total) {
     }
 }
 
-void DrawMap(Figurinha *album, int total) {
+void DrawMap(Figurinha *meuAlbum) {
     // Desenha Fundo
     if (turnoAtual <= 3) ClearBackground(SKYBLUE);
     else if (turnoAtual == 4) ClearBackground(ORANGE);
@@ -164,29 +165,34 @@ void DrawMap(Figurinha *album, int total) {
 
     // tela de abrir pacote de figurinha (Desenhada por cima de tudo)
     if (telaGacha) {
-        // Fade escurece a tela inteira com 80% de opacidade
-        DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.8f)); 
-        DrawRectangle(150, 100, 500, 400, RAYWHITE); // O Cartão branco de fundo
+        // Dentro da lógica de desenhar o Gacha (quando telaGacha for true)
+        DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.9f)); // Fundo escuro para dar destaque
 
-        DrawText("NOVA CONQUISTA!", 280, 120, 25, DARKBLUE);
-        DrawText("Clique em qualquer lugar para guardar", 210, 460, 15, GRAY);
+        DrawText("PACOTE ABERTO!", 280, 100, 30, WHITE); // Título centralizado no topo
 
-        // Desenha 5 figurinhas
+        int larguraCarta = 130;
+        int alturaCarta = 155;
+        int espacamento = 20;
+        int margemEsquerda = 35;
+        int posicaoY = 220; 
+
+        // desenha as 5 figurinhas
         for (int i = 0; i < 5; i++) {
-            int posX = 170 + (i * 90);
-            DrawRectangle(posX, 180, 80, 120, LIGHTGRAY);
-            DrawRectangleLines(posX, 180, 80, 120, DARKGRAY);
-
-            int index = sorteadas[i];
-            const char* nome = album[index].titulo;
-
-            // Escreve o ID
-            DrawText(TextFormat("#%s", album[index].codigo), posX + 5, 190, 10, DARKGRAY);
+            int posX = margemEsquerda + (i * (larguraCarta + espacamento));
             
-            // Quebra o nome em duas linhas para caber na carta
-            DrawText(TextSubtext(nome, 0, 8), posX + 5, 230, 12, BLACK);
-            DrawText(TextSubtext(nome, 8, 8), posX + 5, 245, 12, BLACK);
+            int indiceFigurinha = sorteadas[i];
+
+            Figurinha f = meuAlbum[indiceFigurinha];
+            
+            // Desenha o slot da figurinha
+            DrawRectangle(posX, posicaoY, larguraCarta, alturaCarta, LIGHTGRAY); 
+            DrawText(TextFormat("#%s", f.codigo), posX + 10, posicaoY + 10, 15, GRAY); //mostra o código da figurinha
+            DrawText(TextFormat("%s", f.titulo), posX, posicaoY + alturaCarta + 10, 12, WHITE); // Mostra o nome/título da figurinha
+            DrawText(TextFormat("Tipo: %s", f.tipo), posX, posicaoY + alturaCarta + 25, 11, GOLD); // Mostra raridade da figurinha
+            DrawText(TextFormat("%s", f.secao), posX, posicaoY + alturaCarta + 38, 10, LIGHTGRAY);
         }
+
+        DrawText("CLIQUE PARA CONTINUAR", 270, 500, 20, YELLOW);
     }
         // tela de obstaculo
     if (telaObstaculo) {

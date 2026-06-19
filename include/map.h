@@ -13,6 +13,6 @@ typedef struct {
 
 void InitMap(void);
 void UpdateMap(Figurinha *album, int total);
-void DrawMap(Figurinha *album, int total);
+void DrawMap(Figurinha *meuAlbum);
 
 #endif
