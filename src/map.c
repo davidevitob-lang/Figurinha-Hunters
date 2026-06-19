@@ -14,7 +14,7 @@ static Rectangle btnAbrir;
 
 // Variáveis do Sorteio
 static bool telaGacha = false;
-static int sorteadas[5] = {0};
+static int sorteadas[7] = {0};
 
 // Variáveis do obstáculo
 static bool telaObstaculo = false;
@@ -118,8 +118,8 @@ void UpdateMap(Figurinha *album, int total) {
             pacotesAbertos++;
             telaGacha = true;
             
-            // Sorteia 5 figurinhas
-            for (int i = 0; i < 5; i++) {
+            // Sorteia 7 figurinhas
+            for (int i = 0; i < 7; i++) {
                 int indexSorteado = GetRandomValue(0, total - 1);
                 sorteadas[i] = indexSorteado;
                 album[indexSorteado].quantidade++; 
@@ -164,35 +164,32 @@ void DrawMap(Figurinha *meuAlbum) {
     }
 
     // tela de abrir pacote de figurinha (Desenhada por cima de tudo)
-    if (telaGacha) {
-        // Dentro da lógica de desenhar o Gacha (quando telaGacha for true)
-        DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.9f)); // Fundo escuro para dar destaque
+if (telaGacha) {
+        DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.9f)); 
 
-        DrawText("PACOTE ABERTO!", 280, 100, 30, WHITE); // Título centralizado no topo
+        DrawText("PACOTE ABERTO!", 280, 80, 30, WHITE); 
 
-        int larguraCarta = 130;
-        int alturaCarta = 155;
-        int espacamento = 20;
-        int margemEsquerda = 35;
-        int posicaoY = 220; 
+        int larguraCarta = 90;
+        int alturaCarta = 110;
+        int espacamento = 15;
+        int margemEsquerda = 40;
+        int posicaoY = 240; 
 
-        // desenha as 5 figurinhas
-        for (int i = 0; i < 5; i++) {
+        // O laço agora roda até 7
+        for (int i = 0; i < 7; i++) {
             int posX = margemEsquerda + (i * (larguraCarta + espacamento));
             
             int indiceFigurinha = sorteadas[i];
-
             Figurinha f = meuAlbum[indiceFigurinha];
             
-            // Desenha o slot da figurinha
-            DrawRectangle(posX, posicaoY, larguraCarta, alturaCarta, LIGHTGRAY); 
-            DrawText(TextFormat("#%s", f.codigo), posX + 10, posicaoY + 10, 15, GRAY); //mostra o código da figurinha
-            DrawText(TextFormat("%s", f.titulo), posX, posicaoY + alturaCarta + 10, 12, WHITE); // Mostra o nome/título da figurinha
-            DrawText(TextFormat("Tipo: %s", f.tipo), posX, posicaoY + alturaCarta + 25, 11, GOLD); // Mostra raridade da figurinha
-            DrawText(TextFormat("%s", f.secao), posX, posicaoY + alturaCarta + 38, 10, LIGHTGRAY);
+            // Desenha slot da carta (90x110)
+            DrawRectangle(posX, posicaoY, larguraCarta, alturaCarta, LIGHTGRAY);
+            DrawText(TextFormat("#%s", f.codigo), posX + 8, posicaoY + 8, 12, GRAY);
+            DrawText(TextFormat("%s", f.titulo), posX, posicaoY + alturaCarta + 10, 10, WHITE); // EXIBIÇÃO DOS DADOS
+            DrawText(TextFormat("%s", f.tipo), posX, posicaoY + alturaCarta + 22, 9, GOLD);
         }
 
-        DrawText("CLIQUE PARA CONTINUAR", 270, 500, 20, YELLOW);
+        DrawText("CLIQUE PARA CONTINUAR", 270, 520, 20, YELLOW); 
     }
         // tela de obstaculo
     if (telaObstaculo) {
