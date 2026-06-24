@@ -1,8 +1,3 @@
-/**
- * @file album.c
- * @brief Implementação da lógica de dados do álbum (Arquivos e Memória).
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,10 +5,10 @@
 #include "album.h"
 #include "raylib.h"
 
-/**
- * @brief Remove espaços em branco do início e do fim de uma string (Trim).
- * Essencial para tratar o padding do arquivo CSV fornecido.
- */
+extern Texture2D texAlbumBase;
+extern Texture2D texFigComum;
+extern Texture2D texFigRara;
+
 static void limparEspacos(char *str) {
     if (str == NULL) return;
     
@@ -131,7 +126,6 @@ Figurinha* alocarEspacoVazio(Figurinha *album, int *total) {
     if (novo) {
         int i = (*total) - 1;
         memset(&novo[i], 0, sizeof(Figurinha));
-        // Valores default para evitar lixo de memória
         strcpy(novo[i].codigo, "NOVO");
         strcpy(novo[i].titulo, "Sem Nome");
         novo[i].colada = false;
@@ -200,19 +194,72 @@ void DesenharAlbumGrade(Figurinha *album, int total, int *paginaAtual, char *fil
     int count = 0;
     int indexInicial = (*paginaAtual) * 8;
 
-    // cabeçalho com a Caixa de Busca Clicável
-    DrawRectangle(0, 0, 800, 80, DARKBLUE);
-    
+    // Desenha a arte do album.
+    DrawTexturePro(texAlbumBase, 
+        (Rectangle){ 0, 0, (float)texAlbumBase.width, (float)texAlbumBase.height }, 
+        (Rectangle){ 0, 0, 800, 600 }, 
+        (Vector2){ 0, 0 }, 0.0f, WHITE);
+
+    // CABEÇALHO TRANSPARENTE E BUSCA
+
     Rectangle barraBusca = { 20, 20, 300, 40 };
-    DrawRectangleRec(barraBusca, buscaFocada ? RAYWHITE : LIGHTGRAY);
-    DrawRectangleLines(barraBusca.x, barraBusca.y, barraBusca.width, barraBusca.height, buscaFocada ? RED : GRAY);
 
-    if (filtro[0] == '\0') DrawText("Clique aqui para buscar...", 30, 32, 18, GRAY);
-    else DrawText(filtro, 30, 30, 20, BLACK);
+    if (buscaFocada || filtro[0] != '\0') {
+        
+        // Desenha o fundo
+        DrawRectangleRec(barraBusca, BLUE); 
+        
+        if (buscaFocada) {
+            DrawRectangleLinesEx(barraBusca, 2, DARKBLUE); 
+        }
+        
+        if (filtro[0] != '\0') {
+            DrawText(filtro, 30, 30, 20, WHITE); 
+        } else if (buscaFocada) {
+            DrawText("_", 30, 30, 20, DARKGRAY); 
+        }
+    }
 
-    DrawText(TextFormat("Página: %d", (*paginaAtual) + 1), 650, 30, 20, LIGHTGRAY);
+    // ==========================================
+    // LÓGICA DO CONTADOR DE COLADAS
+    // ==========================================
+    int totalColadas = 0;
+    for (int i = 0; i < total; i++) {
+        if (album[i].colada) totalColadas++;
+    }
+    
+    DrawText(TextFormat("Coladas: %d / %d", totalColadas, total), 340, 15, 18, BLACK);
 
-    // Renderização
+    // ==========================================
+    // BOTÃO COLAR TODAS
+    // ==========================================
+    Rectangle btnColarTodas = { 510, 3, 130, 40 };
+    bool hoverColar = CheckCollisionPointRec(mouse, btnColarTodas); // Checa se o mouse está em cima
+    
+    // Fica verde escuro quando passa o mouse por cima para dar feedback visual
+    DrawRectangleRec(btnColarTodas, hoverColar ? DARKGREEN : GREEN);
+    DrawText("COLAR TODAS", btnColarTodas.x + 12, btnColarTodas.y + 12, 14, hoverColar ? WHITE : BLACK);
+
+    if (hoverColar && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+        bool colouAlguma = false;
+        
+        // Varre o álbum inteiro procurando cartas repetidas não coladas
+        for (int i = 0; i < total; i++) {
+            if (!album[i].colada && album[i].quantidade > 0) {
+                album[i].colada = true;
+                album[i].quantidade--;
+                colouAlguma = true; 
+            }
+        }
+        
+        if (colouAlguma) {
+            salvarDadosBinario(album, total);
+        }
+    }
+
+    DrawText(TextFormat("Página: %d", (*paginaAtual) + 1), 660, 15, 20, WHITE);
+
+    // RENDERIZAÇÃO DAS FIGURINHAS
     for (int i = 0; i < total; i++) {
         if (filtro[0] == '\0' || strstr(album[i].codigo, filtro) != NULL) {
             if (count >= indexInicial && desenhados < 8) {
@@ -225,32 +272,47 @@ void DesenharAlbumGrade(Figurinha *album, int total, int *paginaAtual, char *fil
                 bool colada = album[i].colada;
                 int qtd = album[i].quantidade; 
 
-                if (colada) {
-                    DrawRectangleRec(cardArea, RAYWHITE);
-                    DrawRectangleLines(posX, posY, 160, 190, BLUE);
-                    DrawText("COLADA", posX + 50, posY + 85, 14, DARKBLUE);
-                    DrawText(TextFormat("Repetidas: %d", qtd), posX + 10, posY + 165, 14, GREEN);
-                } 
-                else if (qtd > 0) {
-                    DrawRectangleRec(cardArea, YELLOW);
-                    DrawRectangleLines(posX, posY, 160, 190, ORANGE);
-                    DrawText("CLIQUE P/", posX + 45, posY + 80, 14, BLACK);
-                    DrawText("COLAR", posX + 55, posY + 100, 14, BLACK);
+                // Lógica de desenhar a figurinha
+                if (colada || qtd > 0) {
+                    // Escolhe a textura baseada na raridade
+                    Texture2D texturaUsada = texFigComum;
+                    if (strstr(album[i].tipo, "Especial") != NULL || 
+                        strstr(album[i].tipo, "ESPECIAL") != NULL || 
+                        strstr(album[i].tipo, "especial") != NULL) {
+                        texturaUsada = texFigRara;
+                    }
 
-                    if (CheckCollisionPointRec(mouse, cardArea) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                        album[i].colada = true;
-                        album[i].quantidade--; 
-                        salvarDados(album, total); 
+                    // Desenha a figurinha esticando para 160x190
+                    DrawTexturePro(texturaUsada, 
+                        (Rectangle){ 0, 0, (float)texturaUsada.width, (float)texturaUsada.height }, 
+                        cardArea, 
+                        (Vector2){ 0, 0 }, 0.0f, WHITE);
+
+                    // Desenha os textos por cima da arte
+                    DrawText(album[i].codigo, posX + 10, posY + 15, 16, DARKGRAY);
+                    DrawText(TextSubtext(album[i].titulo, 0, 12), posX + 10, posY + 50, 14, BLACK);
+
+                    if (qtd > 0 && !colada) {
+                        // Se tem repetida e não está colada, mostra o botão "Colar"
+                        DrawRectangle(posX + 30, posY + 80, 100, 30, Fade(YELLOW, 0.8f));
+                        DrawText("COLAR", posX + 55, posY + 88, 14, BLACK);
+
+                        if (CheckCollisionPointRec(mouse, cardArea) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                            album[i].colada = true;
+                            album[i].quantidade--; 
+                            salvarDadosBinario(album, total); 
+                        }
+                    } else if (colada) {
+                        DrawText("COLADA", posX + 50, posY + 85, 14, DARKBLUE);
+                        if (qtd > 0) {
+                            DrawText(TextFormat("Repetidas: %d", qtd), posX + 10, posY + 165, 14, GREEN);
+                        }
                     }
                 } 
                 else {
-                    DrawRectangleRec(cardArea, Fade(LIGHTGRAY, 0.5f));
-                    DrawRectangleLines(posX, posY, 160, 190, GRAY);
-                    DrawText("BLOQUEADO", posX + 35, posY + 85, 14, GRAY);
+                    // O jogador não tem a figurinha.
+                    DrawText(album[i].codigo, posX + 60, posY + 85, 20, Fade(GRAY, 0.7f));
                 }
-
-                DrawText(album[i].codigo, posX + 10, posY + 15, 16, (colada || qtd>0) ? DARKGRAY : GRAY);
-                DrawText(TextSubtext(album[i].titulo, 0, 12), posX + 10, posY + 50, 14, (colada || qtd>0) ? BLACK : DARKGRAY);
 
                 desenhados++;
             }
@@ -258,9 +320,8 @@ void DesenharAlbumGrade(Figurinha *album, int total, int *paginaAtual, char *fil
         }
     }
 
-    // Rodapé com Botões de Página
-    DrawRectangle(0, 540, 800, 60, LIGHTGRAY);
-    DrawText("ESC para Menu", 340, 560, 18, DARKGRAY);
+    // RODAPÉ COM BOTÕES DE PÁGINA
+    DrawText("ESC para Menu", 235, 555, 18, BLACK);
 
     Rectangle btnAnt = { 40, 550, 150, 40 };
     Rectangle btnProx = { 610, 550, 150, 40 };
@@ -269,10 +330,10 @@ void DesenharAlbumGrade(Figurinha *album, int total, int *paginaAtual, char *fil
     bool podeAvancar = (count > indexInicial + 8);
 
     // Desenha os botões
-    DrawRectangleRec(btnAnt, podeVoltar ? DARKGRAY : GRAY);
+    DrawRectangleRec(btnAnt, podeVoltar ? Fade(DARKGRAY, 0.8f) : Fade(BLACK, 0.5f));
     DrawText("<- ANTERIOR (A)", btnAnt.x + 10, btnAnt.y + 12, 15, WHITE);
 
-    DrawRectangleRec(btnProx, podeAvancar ? DARKGRAY : GRAY);
+    DrawRectangleRec(btnProx, podeAvancar ? Fade(DARKGRAY, 0.8f) : Fade(BLACK, 0.5f));
     DrawText("PROXIMA (D) ->", btnProx.x + 15, btnProx.y + 12, 15, WHITE);
 
     // lógica de click para mudar de página
@@ -288,11 +349,78 @@ void DesenharAlbumGrade(Figurinha *album, int total, int *paginaAtual, char *fil
     }
 }
 
-// Função simples para salvar o estado atual do álbum no arquivo binário
+// Função para salvar o estado atual do álbum no arquivo binário
 void salvarDados(Figurinha *album, int total) {
     FILE *bin = fopen("dados.bin", "wb");
     if (bin != NULL) {
         fwrite(album, sizeof(Figurinha), total, bin);
         fclose(bin);
     }
+}
+// Função que processa a troca do Mercado Negro
+int ExecutarTrocaMercadoNegro(Figurinha *album, int total, int *moedas, int tipoTroca) {
+    if (*moedas < 20) return -1; // Retorna -1 se não tiver dinheiro
+
+    int totalRepetidas = 0;
+    for (int i = 0; i < total; i++) {
+        bool ehEspecial = (strstr(album[i].tipo, "Especial") != NULL || 
+                           strstr(album[i].tipo, "ESPECIAL") != NULL || 
+                           strstr(album[i].tipo, "especial") != NULL);
+        if ((tipoTroca == 1 && !ehEspecial) || (tipoTroca == 2 && ehEspecial)) {
+            totalRepetidas += album[i].quantidade;
+        }
+    }
+
+    if (totalRepetidas < 5) return -1; // Retorna -1 se não tiver repetidas suficientes
+
+    *moedas -= 20;
+
+    // Remove 5 repetidas
+    int remover = 5;
+    for (int i = 0; i < total && remover > 0; i++) {
+        bool ehEspecial = (strstr(album[i].tipo, "Especial") != NULL || 
+                           strstr(album[i].tipo, "ESPECIAL") != NULL || 
+                           strstr(album[i].tipo, "especial") != NULL);
+        if ((tipoTroca == 1 && !ehEspecial) || (tipoTroca == 2 && ehEspecial)) {
+            while (album[i].quantidade > 0 && remover > 0) {
+                album[i].quantidade--;
+                remover--;
+            }
+        }
+    }
+
+    // Sorteio de raridade (10% de chance de virar especial usando comuns)
+    bool ganharEspecial = (tipoTroca == 2) || (GetRandomValue(1, 100) <= 10);
+
+    // Filtra figurinhas não coladas da raridade sorteada
+    int candidatas[1000];
+    int totalCandidatas = 0;
+    for (int i = 0; i < total; i++) {
+        bool ehEspecial = (strstr(album[i].tipo, "Especial") != NULL || 
+                           strstr(album[i].tipo, "ESPECIAL") != NULL || 
+                           strstr(album[i].tipo, "especial") != NULL);
+        if (!album[i].colada && (ehEspecial == ganharEspecial)) {
+            candidatas[totalCandidatas] = i;
+            totalCandidatas++;
+        }
+    }
+
+    // Se já completou tudo daquela raridade, libera uma repetida
+    if (totalCandidatas == 0) {
+        for (int i = 0; i < total; i++) {
+            bool ehEspecial = (strstr(album[i].tipo, "Especial") != NULL || 
+                               strstr(album[i].tipo, "ESPECIAL") != NULL || 
+                               strstr(album[i].tipo, "especial") != NULL);
+            if (ehEspecial == ganharEspecial) {
+                candidatas[totalCandidatas] = i;
+                totalCandidatas++;
+            }
+        }
+    }
+
+    int sorteada = candidatas[GetRandomValue(0, totalCandidatas - 1)];
+    album[sorteada].colada = true; 
+    
+    salvarDadosBinario(album, total); 
+    return sorteada; // Retorna o ID da figurinha sorteada
 }

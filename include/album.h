@@ -27,5 +27,5 @@ Figurinha* resetarAlbum(Figurinha *album, int *total);
 int pesquisarFigurinha(Figurinha *album, int total, const char *termo);
 void salvarDados(Figurinha *album, int total);
 void DesenharAlbumGrade(Figurinha *album, int total, int *paginaAtual, char *filtro, bool buscaFocada);
-
+int ExecutarTrocaMercadoNegro(Figurinha *album, int total, int *moedas, int tipoTroca);
 #endif

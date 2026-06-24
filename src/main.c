@@ -6,6 +6,16 @@
 #include <string.h>
 #include <math.h>
 
+Texture2D texMenu;
+Texture2D texLogo;
+Texture2D texBotaoJogar;
+Texture2D texBotaoFig; 
+Texture2D texBotaoSair;
+Texture2D texAlbumBase;
+Texture2D texFigComum;
+Texture2D texFigRara;
+
+
 typedef enum { ESTADO_MENU = 0, ESTADO_JOGAR, ESTADO_FIGURINHAS, ESTADO_CADASTRO,ESTADO_ALBUM_VISUAL } EstadoJogo;
 
 int main(void) {
@@ -20,16 +30,28 @@ int main(void) {
 
     // Variáveis de busca e scroll
     char busca[50] = "\0";
-    char buscaAntiga[50] = "\0"; // Para detectar mudança na busca
+    char buscaAntiga[50] = "\0";
     float scrollOffset = 0;
     int resultadoBusca = -1;
-    bool arrastandoScroll = false; // Controle da barra de rolagem
+    bool arrastandoScroll = false;
 
-    InitWindow(800, 600, "Figurinha Hunters 2026 - Pro Edition");
+    InitWindow(800, 600, "Figurinha Hunters 2026 - Pro Soccer Edition");
+    Image iconeJanela = LoadImage("assets/capa.png");
+    SetWindowIcon(iconeJanela);
+    UnloadImage(iconeJanela);
     SetExitKey(KEY_NULL);
     SetTargetFPS(60);
     InitMap();
+    
+    texMenu = LoadTexture("assets/menu.png");
+    texBotaoJogar = LoadTexture("assets/BotaoJogar.png");
+    texBotaoFig = LoadTexture("assets/BotaoFig.png");
+    texBotaoSair = LoadTexture("assets/BotaoSair.png");
 
+    texAlbumBase = LoadTexture("assets/album.png");
+    texFigComum  = LoadTexture("assets/FigComum.png");
+    texFigRara   = LoadTexture("assets/FigRara.png");
+    
     Rectangle btnNova = { 630, 30, 140, 40 };
     Rectangle btnReset = { 480, 30, 140, 40 };
     Rectangle areaScroll = { 785, 105, 15, 475 }; 
@@ -39,10 +61,15 @@ int main(void) {
 
         switch (estado) {
             case ESTADO_MENU:
-                if (CheckCollisionPointRec(mouse, (Rectangle){300,200,200,50}) && IsMouseButtonReleased(0)) estado = ESTADO_JOGAR;
-                if (CheckCollisionPointRec(mouse, (Rectangle){300,270,200,50}) && IsMouseButtonReleased(0)) estado = ESTADO_FIGURINHAS;
-                if (CheckCollisionPointRec(mouse, (Rectangle){300,340,200,50}) && IsMouseButtonReleased(0)) continuarRodando = false;
-                if (IsKeyPressed(KEY_N)) {estado = ESTADO_ALBUM_VISUAL;paginaAtual = 0;}
+                // caixas de colisão
+                Rectangle hitJogar = { 240, 310, 320, 80 };
+                Rectangle hitFig   = { 240, 400, 320, 80 };
+                Rectangle hitSair  = { 240, 490, 320, 80 };
+
+                if (CheckCollisionPointRec(mouse, hitJogar) && IsMouseButtonReleased(0)) estado = ESTADO_JOGAR;
+                if (CheckCollisionPointRec(mouse, hitFig) && IsMouseButtonReleased(0)) estado = ESTADO_FIGURINHAS;
+                if (CheckCollisionPointRec(mouse, hitSair) && IsMouseButtonReleased(0)) continuarRodando = false;
+                if (IsKeyPressed(KEY_N)) { estado = ESTADO_ALBUM_VISUAL; paginaAtual = 0; }
                 break;
 
             case ESTADO_FIGURINHAS:
@@ -92,12 +119,11 @@ int main(void) {
 
                 // lógica para os botões da lista
                 
-                // 1. Botão Nova Figurinha (Corrigido para Pressed para evitar conflitos)
+                // Botão Nova Figurinha
                 if (CheckCollisionPointRec(mouse, btnNova) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                     indiceEdicao = -1; 
                     estado = ESTADO_CADASTRO;
                 }
-                // IMPLEMENTAÇÃO DO RESET: Checa se clicou no botão de Reset primeiro
                 else if (CheckCollisionPointRec(mouse, btnReset) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                     meuAlbum = resetarAlbum(meuAlbum, &total);
                     scrollOffset = 0;   
@@ -105,7 +131,7 @@ int main(void) {
                     buscaAntiga[0] = '\0';
                     resultadoBusca = -1;
                 }
-                // Clique nas linhas da Lista (Só entra aqui se não clicou nos botões de cima)
+                // Clique nas linhas da Lista
                 else if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                     for (int i = 0; i < total; i++) {
                         int posY = 120 + (i * 30) + (int)scrollOffset;
@@ -176,14 +202,29 @@ int main(void) {
 
         BeginDrawing();
             ClearBackground(RAYWHITE);
-            DrawText(TextFormat("Mouse X: %0.f | Y: %0.f", mouse.x, mouse.y), 20, 560, 16, BLUE);
+            // DrawText(TextFormat("Mouse X: %0.f | Y: %0.f", mouse.x, mouse.y), 20, 560, 16, BLUE);
 
             if (estado == ESTADO_MENU) {
-                DrawText("FIGURINHA HUNTERS", 240, 80, 30, DARKBLUE);
-                DrawRectangle(300, 200, 200, 50, BLUE); DrawText("JOGAR", 370, 215, 20, WHITE);
-                DrawRectangle(300, 270, 200, 50, BLUE); DrawText("FIGURINHAS", 345, 285, 20, WHITE);
-                DrawRectangle(300, 340, 200, 50, RED);  DrawText("SAIR", 375, 355, 20, WHITE);
-            } 
+                DrawTexturePro(texMenu, 
+                    (Rectangle){ 0, 0, (float)texMenu.width, (float)texMenu.height }, 
+                    (Rectangle){ 0, 0, 800, 600 }, 
+                    (Vector2){ 0, 0 }, 0.0f, WHITE);
+                
+                DrawTexturePro(texBotaoJogar, 
+                    (Rectangle){ 0, 0, (float)texBotaoJogar.width, (float)texBotaoJogar.height }, 
+                    (Rectangle){ 240, 310, 320, 80 }, 
+                    (Vector2){ 0, 0 }, 0.0f, WHITE);
+
+                DrawTexturePro(texBotaoFig, 
+                    (Rectangle){ 0, 0, (float)texBotaoFig.width, (float)texBotaoFig.height }, 
+                    (Rectangle){ 240, 400, 320, 80 }, 
+                    (Vector2){ 0, 0 }, 0.0f, WHITE);
+
+                DrawTexturePro(texBotaoSair, 
+                    (Rectangle){ 0, 0, (float)texBotaoSair.width, (float)texBotaoSair.height }, 
+                    (Rectangle){ 240, 490, 320, 80 }, 
+                    (Vector2){ 0, 0 }, 0.0f, WHITE);
+            }
             else if (estado == ESTADO_FIGURINHAS) {
                 BeginScissorMode(0, 105, 800, 475);
                     for (int i = 0; i < total; i++) {
@@ -196,10 +237,10 @@ int main(void) {
                     }
                 EndScissorMode();
 
-                // DESENHO DA BARRA DE ROLAGEM
+                // barra de rolagem
                 float alturaVisivel = 475.0f;
                 float alturaTotal = total * 30.0f;
-                DrawRectangleRec(areaScroll, LIGHTGRAY); // Fundo
+                DrawRectangleRec(areaScroll, LIGHTGRAY);
                 if (alturaTotal > alturaVisivel) {
                     float tamBarra = (alturaVisivel / alturaTotal) * alturaVisivel;
                     float maxScroll = -(alturaTotal - alturaVisivel);
@@ -214,17 +255,25 @@ int main(void) {
                 DrawRectangleRec(btnReset, BLACK); DrawText("RESET (!)", 515, 40, 18, WHITE);
             }
             else if (estado == ESTADO_JOGAR) {
-                DrawMap(meuAlbum);
+                DrawMap(meuAlbum, total);
                 //DrawText("MAPA DE TESTE - ESC para Voltar", 20, 20, 20, DARKGRAY);
             }
 
             else if (estado == ESTADO_ALBUM_VISUAL) {
-            // Passando &paginaAtual para que a função consiga alterar a página
             DesenharAlbumGrade(meuAlbum, total, &paginaAtual, filtroVisual, buscaFocada);
             }
 
         EndDrawing();
     }
+
+    UnloadTexture(texMenu);
+    UnloadTexture(texLogo);
+    UnloadTexture(texBotaoJogar);
+    UnloadTexture(texBotaoFig);
+    UnloadTexture(texBotaoSair);
+    UnloadTexture(texFigComum);
+    UnloadTexture(texFigRara);
+    UnloadTexture(texAlbumBase);
 
     salvarDadosBinario(meuAlbum, total);
     if (meuAlbum) free(meuAlbum);
