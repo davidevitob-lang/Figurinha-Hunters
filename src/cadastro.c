@@ -54,7 +54,7 @@ void UpdateDrawCadastro(Figurinha **album, int *total, int *estadoAtual, int ind
         // Reseta buffers para a próxima vez
         inputTitulo[0] = '\0'; inputCodigo[0] = '\0';
         carregouDados = false;
-        *estadoAtual = 2; // Volta para FIGURINHAS
+        *estadoAtual = 3; // Volta para FIGURINHAS
     }
 
     // Desenho

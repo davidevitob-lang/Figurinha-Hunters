@@ -75,6 +75,12 @@ int main(void) {
 
     while (continuarRodando && !WindowShouldClose()) {
         Vector2 mouse = GetMousePosition();
+        if (IsKeyPressed(KEY_F12)) {
+            meuAlbum = resetarAlbum(meuAlbum, &total);
+            // Se estiver na lista, reseta o scroll e a busca também
+            scrollOffset = 0;   
+            busca[0] = '\0';    
+        }
 
         switch (estado) {
 
@@ -196,7 +202,7 @@ int main(void) {
                             // Clique na linha para editar (Evita colisão se o clique for muito no canto perto do scroll)
                             else if (CheckCollisionPointRec(mouse, (Rectangle){20,(float)posY,700,25})) {
                                 indiceEdicao = i; 
-                                estado = ESTADO_CADASTRO; 
+                                estado = ESTADO_CADASTRO;
                                 break;
                             }
                         }
