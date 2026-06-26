@@ -16,12 +16,12 @@ Texture2D texFigComum;
 Texture2D texFigRara;
 
 
-typedef enum { ESTADO_MENU = 0, ESTADO_JOGAR, ESTADO_FIGURINHAS, ESTADO_CADASTRO,ESTADO_ALBUM_VISUAL } EstadoJogo;
+typedef enum { ESTADO_INTRO = 0, ESTADO_MENU, ESTADO_JOGAR, ESTADO_FIGURINHAS, ESTADO_CADASTRO, ESTADO_ALBUM_VISUAL } EstadoJogo;
 
 int main(void) {
     int total = 0;
     Figurinha *meuAlbum = carregarDadosIniciais(&total);
-    EstadoJogo estado = ESTADO_MENU;
+    EstadoJogo estado = ESTADO_INTRO;
     int indiceEdicao = -1; 
     bool continuarRodando = true;
     int paginaAtual = 0;
@@ -36,6 +36,8 @@ int main(void) {
     bool arrastandoScroll = false;
 
     InitWindow(800, 600, "Figurinha Hunters 2026 - Pro Soccer Edition");
+    InitAudioDevice(); 
+    Sound somIntro = LoadSound("assets/introFH.wav");
     Image iconeJanela = LoadImage("assets/capa.png");
     SetWindowIcon(iconeJanela);
     UnloadImage(iconeJanela);
@@ -48,6 +50,19 @@ int main(void) {
     texBotaoFig = LoadTexture("assets/BotaoFig.png");
     texBotaoSair = LoadTexture("assets/BotaoSair.png");
 
+    BeginDrawing();
+        ClearBackground(RAYWHITE);
+        DrawText("Carregando intro...", 300, 280, 20, GRAY);
+    EndDrawing();
+
+    int animFrames = 0;
+    Image imageIntro = LoadImageAnim("assets/introFH.gif", &animFrames);
+    Texture2D texIntro = LoadTextureFromImage(imageIntro);
+    int frameAtual = 0;
+    float tempoFrame = 0.0f;
+    float alphaFade = 0.0f;
+    bool iniciandoFade = false;
+
     texAlbumBase = LoadTexture("assets/album.png");
     texFigComum  = LoadTexture("assets/FigComum.png");
     texFigRara   = LoadTexture("assets/FigRara.png");
@@ -56,11 +71,47 @@ int main(void) {
     Rectangle btnReset = { 480, 30, 140, 40 };
     Rectangle areaScroll = { 785, 105, 15, 475 }; 
 
+    PlaySound(somIntro);
+
     while (continuarRodando && !WindowShouldClose()) {
         Vector2 mouse = GetMousePosition();
 
         switch (estado) {
+
+            case ESTADO_INTRO: {
+                if (!iniciandoFade) {
+                    tempoFrame += GetFrameTime();
+                    if (tempoFrame >= (1.0f / 20.0f)) {
+                        tempoFrame = 0.0f;
+                        frameAtual++;
+                        
+                        if (frameAtual >= animFrames) {
+                            frameAtual = animFrames - 1; 
+                            iniciandoFade = true; 
+                        } else {
+                            int frameOffset = imageIntro.width * imageIntro.height * 4 * frameAtual;
+                            UpdateTexture(texIntro, ((unsigned char *)imageIntro.data) + frameOffset);
+                        }
+                    }
+                    if (IsKeyPressed(KEY_SPACE) || IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) iniciandoFade = true;
+                } else {
+                    alphaFade += 1.5f * GetFrameTime(); 
+                    
+                    SetSoundVolume(somIntro, 1.0f - alphaFade);
+                    
+                    if (alphaFade >= 1.0f) {
+                        alphaFade = 1.0f;
+                        StopSound(somIntro);
+                        estado = ESTADO_MENU; 
+                    }
+                }
+            } break;
+
             case ESTADO_MENU:
+                if (alphaFade > 0.0f) {
+                    alphaFade -= 1.5f * GetFrameTime();
+                    if (alphaFade < 0.0f) alphaFade = 0.0f;
+                }    
                 // caixas de colisão
                 Rectangle hitJogar = { 240, 310, 320, 80 };
                 Rectangle hitFig   = { 240, 400, 320, 80 };
@@ -204,7 +255,16 @@ int main(void) {
             ClearBackground(RAYWHITE);
             // DrawText(TextFormat("Mouse X: %0.f | Y: %0.f", mouse.x, mouse.y), 20, 560, 16, BLUE);
 
-            if (estado == ESTADO_MENU) {
+            if (estado == ESTADO_INTRO) {
+                // Desenha a animação centralizada na tela
+                DrawTexture(texIntro, 400 - texIntro.width/2, 300 - texIntro.height/2, WHITE);
+                
+                // Desenha o efeito de escurecimento por cima
+                if (iniciandoFade) {
+                    DrawRectangle(0, 0, 800, 600, Fade(BLACK, alphaFade));
+                }
+            }
+            else if (estado == ESTADO_MENU) {
                 DrawTexturePro(texMenu, 
                     (Rectangle){ 0, 0, (float)texMenu.width, (float)texMenu.height }, 
                     (Rectangle){ 0, 0, 800, 600 }, 
@@ -224,6 +284,11 @@ int main(void) {
                     (Rectangle){ 0, 0, (float)texBotaoSair.width, (float)texBotaoSair.height }, 
                     (Rectangle){ 240, 490, 320, 80 }, 
                     (Vector2){ 0, 0 }, 0.0f, WHITE);
+
+                // Desenha o efeito de clareamento por cima do menu
+                if (alphaFade > 0.0f) {
+                    DrawRectangle(0, 0, 800, 600, Fade(BLACK, alphaFade));
+                }
             }
             else if (estado == ESTADO_FIGURINHAS) {
                 BeginScissorMode(0, 105, 800, 475);
@@ -271,9 +336,13 @@ int main(void) {
     UnloadTexture(texBotaoJogar);
     UnloadTexture(texBotaoFig);
     UnloadTexture(texBotaoSair);
+    UnloadTexture(texIntro);
+    UnloadImage(imageIntro);
     UnloadTexture(texFigComum);
     UnloadTexture(texFigRara);
     UnloadTexture(texAlbumBase);
+    UnloadSound(somIntro);
+    CloseAudioDevice();
 
     salvarDadosBinario(meuAlbum, total);
     if (meuAlbum) free(meuAlbum);

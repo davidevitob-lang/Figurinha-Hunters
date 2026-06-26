@@ -5,7 +5,7 @@ else
   OS := $(strip $(shell uname))
 endif
 
-BINNAME = jogo
+BINNAME = FigurinhaHunters
 
 ifeq ($(OS),Windows_NT)
 	INCLUDE = -I./include/

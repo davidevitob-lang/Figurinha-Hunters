@@ -9,6 +9,9 @@ Texture2D texPacote;
 Texture2D texFundoCarta;
 extern Texture2D texFigComum;
 extern Texture2D texFigRara;
+Texture2D texMesa;
+Texture2D texMoeda;
+Texture2D texLixo;
 
 // --- VARIÁVEIS DO JOGO E MAPA ---
 int energia;
@@ -34,8 +37,14 @@ Rectangle btnAbrir;
 // --- VARIÁVEIS DOS MINIGAMES ---
 bool telaTrabalho1 = false; // Restaurante
 bool telaTrabalho2 = false; // Chuva de moedas
-float tempoTrabalho = 0.0f;
-int moedasGanhas = 0;
+float tempoMinigame = 0.0f;
+int recompensasMinigame = 0;
+static bool telaOpcaoBanca = false;
+static bool telaRoubo = false;
+static float ponteiroX = 200.0f;
+static int direcaoPonteiro = 1;
+static int estadoRoubo = 0; // 0 = jogando, 1 = sucesso, 2 = falha, 3 = timeout
+static float timerMensagemRoubo = 0.0f;
 
 // Variáveis do Restaurante
 int mesaValores[3];
@@ -57,6 +66,11 @@ void InitMap(void) {
     texMapa = LoadTexture("assets/mapaFH.png");
     texPacote = LoadTexture("assets/pacote.png");
     texFundoCarta = LoadTexture("assets/fundo_carta.png");
+    
+    // Carrega as texturas dos minigames
+    texMesa = LoadTexture("assets/mesa.png");
+    texMoeda = LoadTexture("assets/moedaFH.png");
+    texLixo = LoadTexture("assets/lixo.png");
     
     // Configuração do Sistema de Energia
     energia = 5;
@@ -92,7 +106,7 @@ void UpdateMap(Figurinha *album, int total) {
         return; 
     }
 
-    if (telaMercadoNegro || telaTrabalho1 || telaTrabalho2) {
+    if (telaMercadoNegro || telaTrabalho1 || telaTrabalho2 || telaOpcaoBanca || telaRoubo || telaAjuda) {
         return;
     }
 
@@ -106,8 +120,8 @@ void UpdateMap(Figurinha *album, int total) {
         
         if (CheckCollisionPointRec(mouse, hitLoja)) {
             telaTrabalho1 = true;
-            tempoTrabalho = 10.0f;
-            moedasGanhas = 0;
+            tempoMinigame = 10.0f;
+            recompensasMinigame = 0;
             
             // Gera 3 números de mesas distintos e aleatórios
             mesaValores[0] = GetRandomValue(1, 30);
@@ -123,8 +137,8 @@ void UpdateMap(Figurinha *album, int total) {
                  CheckCollisionPointRec(mouse, hitU_Top) || 
                  CheckCollisionPointRec(mouse, hitU_Dir)) {
             telaTrabalho2 = true;
-            tempoTrabalho = 10.0f;
-            moedasGanhas = 0;
+            tempoMinigame = 10.0f;
+            recompensasMinigame = 0;
             for(int i=0; i<9; i++) gridTrabalho[i] = 0;
         }
         
@@ -133,12 +147,8 @@ void UpdateMap(Figurinha *album, int total) {
         }
 
         // Lógica da Banca (Compra de pacotes)
-        else if (CheckCollisionPointRec(mouse, hitBanca)) { // Removida a trava de turno
-            if (dinheiro >= 10) {
-                dinheiro -= 10;
-                pacotesFechados++;
-                energia--;
-            }
+        else if (CheckCollisionPointRec(mouse, hitBanca)) { 
+            telaOpcaoBanca = true;
         }
         
         // Lógica de Abrir o Pacote
@@ -284,24 +294,26 @@ void DrawMap(Figurinha *meuAlbum, int total) {
         // Texto dinâmico que indica qual mesa o jogador deve clicar
         DrawText(TextFormat("LEVE O PEDIDO PARA A MESA: %d", numeroPedido), 190, 95, 22, YELLOW);
         
-        DrawText(TextFormat("TEMPO: %.1f", tempoTrabalho), 340, 135, 20, tempoTrabalho > 3.0f ? WHITE : RED);
-        DrawText(TextFormat("Dinheiro na Bandeja: R$ %d", moedasGanhas), 280, 165, 20, GOLD);
+        DrawText(TextFormat("TEMPO: %.1f", tempoMinigame), 340, 135, 20, tempoMinigame > 3.0f ? WHITE : RED);
+        DrawText(TextFormat("Dinheiro na Bandeja: R$ %d", recompensasMinigame), 280, 165, 20, GOLD);
 
-        tempoTrabalho -= GetFrameTime(); 
+        tempoMinigame -= GetFrameTime(); 
 
-        if (tempoTrabalho > 0) {
+        if (tempoMinigame > 0) {
             for (int i = 0; i < 3; i++) {
                 Rectangle btnMesa = { 150 + (i * 180), 250, 120, 120 };
                 bool hover = CheckCollisionPointRec(GetMousePosition(), btnMesa);
                 
-                DrawRectangleRec(btnMesa, hover ? LIGHTGRAY : RAYWHITE);
-                DrawRectangleLinesEx(btnMesa, 4, DARKGRAY);
-                DrawText(TextFormat("%d", mesaValores[i]), btnMesa.x + 40, btnMesa.y + 45, 30, BLACK);
+                Color corMesa = hover ? LIGHTGRAY : WHITE;
+                DrawTexturePro(texMesa, 
+                    (Rectangle){ 0, 0, (float)texMesa.width, (float)texMesa.height }, 
+                    btnMesa, (Vector2){ 0, 0 }, 0.0f, corMesa);
+
+                DrawText(TextFormat("%d", mesaValores[i]), btnMesa.x + 40, btnMesa.y + 15, 30, WHITE);
 
                 if (hover && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                    // Valida se clicou na mesa com o número igual ao exibido no texto
                     if (mesaValores[i] == numeroPedido) {
-                        moedasGanhas += 2; 
+                        recompensasMinigame += 2; 
                     }
                     // Sorteia instantaneamente a próxima rodada
                     mesaValores[0] = GetRandomValue(1, 30);
@@ -313,11 +325,11 @@ void DrawMap(Figurinha *meuAlbum, int total) {
             }
         } else {
             DrawText("FIM DE EXPEDIENTE!", 260, 250, 30, WHITE);
-            DrawText(TextFormat("+ R$ %d", moedasGanhas), 340, 300, 20, GREEN);
+            DrawText(TextFormat("+ R$ %d", recompensasMinigame), 340, 300, 20, GREEN);
             DrawText("Clique para Voltar", 310, 450, 20, GRAY);
             
-if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                dinheiro += moedasGanhas; 
+            if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                dinheiro += recompensasMinigame; 
                 energia--;
                 telaTrabalho1 = false;
             }
@@ -330,12 +342,12 @@ if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
     if (telaTrabalho2) {
         DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.9f));
         DrawText("PEGUE AS MOEDAS DO CHÃO!", 230, 50, 30, GREEN);
-        DrawText(TextFormat("TEMPO: %.1f", tempoTrabalho), 340, 100, 20, tempoTrabalho > 3.0f ? WHITE : RED);
-        DrawText(TextFormat("Moedas coletadas: R$ %d", moedasGanhas), 280, 140, 20, GOLD);
+        DrawText(TextFormat("TEMPO: %.1f", tempoMinigame), 340, 100, 20, tempoMinigame > 3.0f ? WHITE : RED);
+        DrawText(TextFormat("Moedas coletadas: R$ %d", recompensasMinigame), 280, 140, 20, GOLD);
 
-        tempoTrabalho -= GetFrameTime();
+        tempoMinigame -= GetFrameTime();
         
-        if (tempoTrabalho > 0) {
+        if (tempoMinigame > 0) {
             
             // Lógica do minigame
             tempoPiscar += GetFrameTime();
@@ -353,15 +365,24 @@ if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                 int linha = i / 3;
                 Rectangle btnCaixa = { 250 + (col * 110), 200 + (linha * 110), 90, 90 };
                 
-                Color corCaixa = GRAY;
-                if (gridTrabalho[i] == 1) corCaixa = LIME;
-                if (gridTrabalho[i] == 2) corCaixa = RED;
+                DrawRectangleRec(btnCaixa, Fade(DARKGRAY, 0.5f));
+                DrawRectangleLinesEx(btnCaixa, 2, BLACK);
 
-                DrawRectangleRec(btnCaixa, corCaixa);
+                // Desenha Moeda se for 1, Lixo se for 2
+                if (gridTrabalho[i] == 1) { 
+                    DrawTexturePro(texMoeda, 
+                        (Rectangle){ 0, 0, (float)texMoeda.width, (float)texMoeda.height }, 
+                        btnCaixa, (Vector2){ 0, 0 }, 0.0f, WHITE);
+                } 
+                else if (gridTrabalho[i] == 2) {
+                    DrawTexturePro(texLixo, 
+                        (Rectangle){ 0, 0, (float)texLixo.width, (float)texLixo.height }, 
+                        btnCaixa, (Vector2){ 0, 0 }, 0.0f, WHITE);
+                }
 
                 if (CheckCollisionPointRec(GetMousePosition(), btnCaixa) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                     if (gridTrabalho[i] == 1) { 
-                        moedasGanhas += 1;
+                        recompensasMinigame += 1;
                         gridTrabalho[i] = 0; 
                     } else if (gridTrabalho[i] == 2) {
                         gridTrabalho[i] = 0; 
@@ -370,11 +391,11 @@ if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             }
         } else {
             DrawText("FIM DE EXPEDIENTE!", 260, 250, 30, WHITE);
-            DrawText(TextFormat("+ R$ %d", moedasGanhas), 340, 300, 20, GREEN);
+            DrawText(TextFormat("+ R$ %d", recompensasMinigame), 340, 300, 20, GREEN);
             DrawText("Clique para Voltar", 310, 450, 20, GRAY);
             
-if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                dinheiro += moedasGanhas; 
+            if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                dinheiro += recompensasMinigame; 
                 energia--;
                 telaTrabalho2 = false;
             }
@@ -461,6 +482,138 @@ if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
             DrawText(TextFormat("[%s]", f.tipo), 340, cardY + 140, 12, GOLD);
             
             DrawText("Clique em qualquer lugar para fechar", 270, 435, 12, GRAY);
+        }
+    }
+    // ==========================================
+    // MENU DA BANCA
+    // ==========================================
+    if (telaOpcaoBanca) {
+        DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.8f));
+        
+        Rectangle painelBanca = { 220, 180, 360, 280 };
+        DrawRectangleRec(painelBanca, DARKGRAY);
+        DrawRectangleLinesEx(painelBanca, 3, BLUE);
+        
+        DrawText("BANCA DE FIGURINHAS", 270, 200, 20, BLUE);
+
+        Rectangle btnComprar = { 250, 250, 300, 45 };
+        Rectangle btnRoubar = { 250, 310, 300, 45 };
+        Rectangle btnSair = { 350, 390, 100, 35 };
+
+        bool hoverComprar = CheckCollisionPointRec(GetMousePosition(), btnComprar);
+        DrawRectangleRec(btnComprar, hoverComprar ? LIGHTGRAY : GRAY);
+        DrawText("COMPRAR PACOTE (R$ 10)", btnComprar.x + 20, btnComprar.y + 12, 18, BLACK);
+
+        bool podeRoubar = (energia == 5 && diaAtual % 2 != 0);
+        bool hoverRoubar = CheckCollisionPointRec(GetMousePosition(), btnRoubar);
+        
+        if (podeRoubar) {
+            DrawRectangleRec(btnRoubar, hoverRoubar ? RED : MAROON);
+            DrawText("ROUBAR BANCA (ALTO RISCO)", btnRoubar.x + 10, btnRoubar.y + 12, 18, WHITE);
+        } else {
+            DrawRectangleRec(btnRoubar, Fade(DARKGRAY, 0.5f));
+            if (diaAtual % 2 == 0) {
+                DrawText("ROUBAR (Volte amanhã)", btnRoubar.x + 40, btnRoubar.y + 12, 18, GRAY);
+            } else {
+                DrawText("ROUBAR (Exige Energia completa)", btnRoubar.x + 25, btnRoubar.y + 12, 18, GRAY);
+            }
+        }
+
+        bool hoverSair = CheckCollisionPointRec(GetMousePosition(), btnSair);
+        DrawRectangleRec(btnSair, hoverSair ? RED : DARKGRAY);
+        DrawText("SAIR", btnSair.x + 28, btnSair.y + 8, 18, WHITE);
+
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            if (hoverComprar && dinheiro >= 10 && energia > 0) {
+                dinheiro -= 10;
+                pacotesFechados++;
+                energia--;
+                telaOpcaoBanca = false;
+            }
+            if (hoverRoubar && podeRoubar) {
+                telaOpcaoBanca = false;
+                telaRoubo = true;
+                
+                ponteiroX = 200.0f;
+                direcaoPonteiro = 1;
+                tempoMinigame = 10.0f;
+                estadoRoubo = 0; 
+                timerMensagemRoubo = 0.0f;
+            }
+            if (hoverSair) {
+                telaOpcaoBanca = false;
+            }
+        }
+    }
+    // ==========================================
+    // MINIGAME 3: O HEIST 
+    // ==========================================
+    if (telaRoubo) {
+        DrawRectangle(0, 0, 800, 600, Fade(BLACK, 0.9f));
+
+        if (estadoRoubo == 0) {
+            DrawText("HEIST DA BANCA!", 280, 100, 30, RED);
+            DrawText(TextFormat("TEMPO: %.1f", tempoMinigame), 350, 150, 20, tempoMinigame > 3.0f ? WHITE : RED);
+            
+            DrawText("Aperte ESPAÇO quando o ponteiro estiver no VERDE!", 120, 200, 22, LIGHTGRAY);
+
+            tempoMinigame -= GetFrameTime();
+
+            Rectangle barraFundo = { 200, 300, 400, 40 };
+            DrawRectangleRec(barraFundo, DARKGRAY);
+            DrawRectangleLinesEx(barraFundo, 3, WHITE);
+
+            Rectangle zonaVerde = { 385, 300, 30, 40 };
+            DrawRectangleRec(zonaVerde, LIME);
+
+            // O Ponteiro Movimentando (Velocidade: 650.0f, podendo ser alterada)
+            ponteiroX += 650.0f * direcaoPonteiro * GetFrameTime(); 
+            
+            if (ponteiroX > 590) { ponteiroX = 590; direcaoPonteiro = -1; }
+            if (ponteiroX < 200) { ponteiroX = 200; direcaoPonteiro = 1; }
+
+            Rectangle ponteiro = { ponteiroX, 290, 10, 60 };
+            DrawRectangleRec(ponteiro, RED);
+
+            if (IsKeyPressed(KEY_SPACE)) {
+                float centroPonteiro = ponteiroX + 5;
+                
+                // Verifica se o ponteiro parou dentro da área verde (entre X: 370 e X: 430)
+                if (centroPonteiro >= zonaVerde.x && centroPonteiro <= (zonaVerde.x + zonaVerde.width)) {
+                    estadoRoubo = 1; // Sucesso
+                    pacotesFechados++;
+                } else {
+                    estadoRoubo = 2; // Falha!
+                }
+                
+                energia -= 2;
+            }
+
+            // Punição por timeout
+            if (tempoMinigame <= 0) {
+                estadoRoubo = 3;
+                energia -= 2;
+            }
+            
+        } else {
+            timerMensagemRoubo += GetFrameTime();
+            
+            if (estadoRoubo == 1) {
+                DrawText("SUCESSO!", 310, 250, 40, LIME);
+                DrawText("Você conseguiu um pacote grátis!", 220, 320, 20, WHITE);
+            } else if (estadoRoubo == 2) {
+                DrawText("FALHOU!", 320, 250, 40, RED);
+                DrawText("Você foi expulso pelo dono da banca!", 200, 320, 20, GRAY);
+            } else if (estadoRoubo == 3) {
+                DrawText("TEMPO ESGOTADO", 230, 250, 40, ORANGE);
+                DrawText("Você desistiu do heist...", 280, 320, 20, GRAY);
+            }
+
+            DrawText("Aperte ESPAÇO para voltar ao mapa", 250, 450, 16, LIGHTGRAY);
+
+            if (timerMensagemRoubo > 3.0f || IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                telaRoubo = false;
+            }
         }
     }
 }
